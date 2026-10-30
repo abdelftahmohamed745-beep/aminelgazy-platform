@@ -1,0 +1,100 @@
+/* المحاضرات — تصميم جديد فوق student-courses.css (نفس متغيّرات الألوان والوضع الليلي) */
+.nav a.on{background:color-mix(in srgb,var(--ink) 8%,transparent);font-weight:700}
+.lc-stats[hidden],.lc-chips[hidden],.lc-feat[hidden]{display:none}
+.pg .lc-hero{padding:34px 0 88px;color:#fff;background:radial-gradient(55% 90% at 100% 0,rgba(198,217,75,.2),transparent 65%),radial-gradient(50% 80% at 0 100%,rgba(61,214,195,.2),transparent 70%),linear-gradient(155deg,#0B1C33 0%,#0A2D3C 62%,#0B4F52 100%)}
+.pg .lc-hero::after{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(rgba(255,255,255,.09) 1.2px,transparent 1.4px) 0 0/24px 24px;-webkit-mask:linear-gradient(200deg,#000,transparent 70%);mask:linear-gradient(200deg,#000,transparent 70%)}
+.lc-hero__in{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:56px;align-items:center}
+.pg .lc-hero .bc{color:#A9B9CC}.pg .lc-hero .bc a{color:#fff}
+.pg .lc-hero .lc-ey{display:inline-flex;align-items:center;gap:8px;padding:5px 16px;border-radius:999px;background:rgba(198,217,75,.14);border:1px solid rgba(198,217,75,.4);color:var(--amb);font-size:14px;font-weight:700;margin-bottom:16px}
+.lc-ey .i{width:16px;height:16px}
+.pg .lc-hero h1{color:#fff}
+.pg .lc-hero h1 mark{color:var(--amb);box-shadow:inset 0 -.3em 0 rgba(198,217,75,.26)}
+.pg .lc-hero .lead{color:#C9D8E6;max-width:540px}
+.lc-stats{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}
+.lc-stats span{display:inline-flex;align-items:center;gap:10px;min-height:46px;padding:6px 18px 6px 14px;border-radius:999px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);color:#DCE7F1;font-weight:600;font-size:14.5px}
+.lc-stats .i{width:20px;height:20px;color:var(--amb)}
+.lc-stats b{color:#fff;font-size:18px;font-weight:900}
+/* أحدث محاضرة */
+.lc-ft{border-radius:28px;overflow:hidden;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.18);box-shadow:0 44px 70px -42px rgba(0,0,0,.75)}
+.lc-ft .lc-th{aspect-ratio:16/10}
+.lc-ft__b{display:flex;flex-direction:column;gap:12px;padding:18px 22px 22px}
+.pg .lc-ft h2{font-size:21px;font-weight:800;line-height:1.5;color:#fff;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.lc-ft .lc-m{color:#B9C9DA}.lc-ft .lc-m .i{color:var(--amb)}
+.lc-new{background:var(--amb);color:#0B1C33}
+/* لوحة التحكم */
+.pg .lc-sec{padding:0 0 96px}
+.lc-panel{position:relative;z-index:2;margin-top:-44px;padding:16px;border-radius:28px;background:var(--card);border:1px solid var(--bd);box-shadow:0 34px 60px -40px rgba(11,28,51,.5)}
+.lc-bar{display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap}
+.lc-tabs{display:flex;gap:4px;padding:5px;flex:1 1 auto;min-width:0;border-radius:999px;background:var(--sky);overflow-x:auto;scrollbar-width:none}
+.lc-tabs::-webkit-scrollbar{display:none}
+.lc-tabs button{flex:none;display:inline-flex;align-items:center;gap:8px;min-height:46px;padding:6px 16px;border:0;border-radius:999px;background:transparent;color:var(--ink);font:700 15px 'Cairo',Tahoma,sans-serif;white-space:nowrap;cursor:pointer;transition:background .2s,color .2s}
+.lc-tabs button .i{width:18px;height:18px;color:var(--den)}
+.lc-tabs button:hover{background:color-mix(in srgb,var(--card) 70%,transparent)}
+.lc-tabs button em{font-style:normal;min-width:26px;padding:0 8px;border-radius:999px;background:var(--card);color:var(--den);font-size:13px;font-weight:800;text-align:center}
+.lc-tabs button[aria-pressed="true"]{background:var(--btn);color:#fff}
+.lc-tabs button[aria-pressed="true"] .i{color:var(--amb)}
+.lc-tabs button[aria-pressed="true"] em{background:var(--amb);color:#0B1C33}
+.lc-search{position:relative;flex:0 1 300px}
+.lc-search .i{position:absolute;top:50%;inset-inline-start:16px;transform:translateY(-50%);width:18px;height:18px;color:var(--mut);pointer-events:none}
+.lc-search input{width:100%;min-height:54px;padding:8px 46px 8px 16px;border-radius:999px;border:1.5px solid var(--bd);background:var(--bg);color:var(--ink);font:500 16px 'Cairo',Tahoma,sans-serif}
+.lc-search input::placeholder{color:var(--mut)}
+.lc-search input:focus{outline:3px solid color-mix(in srgb,var(--den) 45%,transparent);border-color:var(--den)}
+.lc-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;padding-top:14px;border-top:1px dashed var(--bd)}
+.lc-chips button{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:4px 16px;border-radius:999px;border:1.5px solid var(--bd);background:transparent;color:var(--ink);font:600 14.5px 'Cairo',Tahoma,sans-serif;cursor:pointer;transition:all .2s}
+.lc-chips button .i{width:17px;height:17px;color:var(--den)}
+.lc-chips button:hover{border-color:var(--den)}
+.lc-chips button[aria-pressed="true"]{background:var(--amb);border-color:var(--amb);color:#0B1C33}
+.lc-chips button[aria-pressed="true"] .i{color:#0B1C33}
+.lc-head{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin:36px 0 22px}
+.pg .lc-head h2{display:flex;align-items:center;gap:12px;font-size:24px;font-weight:900}
+.lc-head h2::before{content:"";width:6px;height:28px;border-radius:4px;background:var(--amb)}
+.lc-head p{color:var(--mut);font-weight:600;font-size:14.5px}
+/* البطاقات */
+.lc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:26px}
+.lc{display:flex;flex-direction:column;background:var(--card);border:1px solid var(--bd);border-radius:24px;overflow:hidden;transition:transform .25s,box-shadow .25s,border-color .25s}
+@media(hover:hover) and (pointer:fine){.lc:hover{transform:translateY(-6px);border-color:var(--den);box-shadow:0 28px 46px -28px rgba(11,28,51,.55)}.lc:hover .lc-th img{transform:scale(1.07)}.lc:hover .lc-play,.lc-ft:hover .lc-play{transform:scale(1.1)}.lc:hover .lc-go{background:var(--amb);color:#0B1C33}.lc:hover .lc-go .i{transform:translateX(-4px)}}
+.lc-th{position:relative;display:block;width:100%;aspect-ratio:16/10;padding:0;border:0;cursor:pointer;overflow:hidden;background:radial-gradient(70% 90% at 85% 0,rgba(198,217,75,.32),transparent 65%),linear-gradient(135deg,#0B1C33,#0B7A71)}
+.lc-th img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .6s}
+.lc-th::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(7,18,31,.25),transparent 40%,rgba(7,18,31,.7))}
+.lc-th:focus-visible{outline:3px solid var(--den);outline-offset:-3px}
+.lc-play{position:absolute;z-index:1;inset:0;margin:auto;width:60px;height:60px;border-radius:50%;background:var(--amb);color:#0B1C33;display:grid;place-items:center;box-shadow:0 0 0 8px rgba(198,217,75,.28),0 14px 28px -8px rgba(0,0,0,.6);transition:transform .25s}
+.lc-play .i{width:24px;height:24px;fill:currentColor;stroke-width:1;transform:scaleX(-1)}
+.lc-tag,.lc-gr{position:absolute;z-index:1;display:inline-flex;align-items:center;gap:6px;padding:4px 12px;border-radius:999px;font-weight:700;font-size:13px}
+.lc-tag{top:12px;inset-inline-start:12px;background:#fff;color:#0B1C33}
+.lc-gr{bottom:12px;inset-inline-end:12px;background:rgba(11,28,51,.78);color:#fff;backdrop-filter:blur(6px)}
+.lc-tag .i,.lc-gr .i{width:15px;height:15px}.lc-tag .i{color:var(--den)}.lc-gr .i{color:var(--amb)}
+.lc-b{display:flex;flex-direction:column;gap:10px;flex:1;padding:18px 20px 20px}
+.lc-b h3{font-size:18px;font-weight:800;line-height:1.55;min-height:3.1em;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.lc-m{display:flex;flex-wrap:wrap;gap:4px 16px;color:var(--mut);font-size:13.5px;font-weight:600}
+.lc-m span{display:inline-flex;align-items:center;gap:6px}
+.lc-m .i{width:16px;height:16px;color:var(--den)}
+.lc-n{margin:0;padding:8px 12px;border-radius:12px;background:var(--sky);color:var(--ink);font-size:14px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.pg .lc-go{margin-top:auto;display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:8px 18px;border:0;border-radius:999px;background:var(--sky);color:var(--den);font:800 15px 'Cairo',Tahoma,sans-serif;cursor:pointer;touch-action:manipulation;transition:background .2s,color .2s}
+.lc-go .i{width:18px;height:18px;transition:transform .2s}
+.pg .lc-ft .lc-go{background:var(--amb);color:#0B1C33}
+.pg .lc-ft .lc-go:hover{background:#D6E766}
+.lm{position:fixed;inset:0;z-index:1000;display:grid;place-items:center;padding:16px;background:rgba(7,18,31,.88)}
+.lm[hidden]{display:none}
+.lm-card{width:min(980px,100%);max-height:100%;overflow:auto;border-radius:20px;background:#0B1C33;color:#fff;border:1px solid #22344D}
+.lm-top{display:flex;align-items:center;gap:10px;padding:10px 12px 10px 16px}
+.lm-t{flex:1;min-width:0;font:800 17px/1.5 'Cairo',Tahoma,sans-serif;color:#fff}
+.lm-x{flex:none;width:44px;height:44px;border:0;border-radius:12px;background:transparent;color:#fff;display:grid;place-items:center;cursor:pointer}
+.lm-x:hover{background:#1A2B45}
+.lm-stage{position:relative;aspect-ratio:16/9;background:#000}
+.lm-stage iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.lm-meta{margin:0;padding:12px 18px 16px;color:#B8C6D9;font-size:14px;font-weight:600}
+@media(max-width:900px){.lc-hero__in{grid-template-columns:minmax(0,1fr);gap:32px}.lc-search{flex:1 1 100%}}
+@media(max-width:560px){.pg .lc-hero{padding:24px 0 76px}.lc-grid{grid-template-columns:minmax(0,1fr);gap:20px}.lc-panel{padding:12px;border-radius:22px;margin-top:-40px}.lc-tabs button{padding:6px 14px}.lc-head{margin:28px 0 18px}.lm{padding:0;place-items:center stretch}.lm-card{border-radius:0}}
+/* الهاتف أفقيًا (أو أي شاشة قصيرة): المشغّل يملأ الشاشة كلها بلا هوامش ولا رأس ولا حواف مستديرة.
+   زر الإغلاق يصير عمودًا رفيعًا في المساحة السوداء الفارغة بجوار الفيديو (الفيديو 16:9 فلا تُهدر عليه عرضًا) فيأخذ الفيديو كل الارتفاع.
+   لا يُرسم شيء فوق مشغّل يوتيوب نفسه (سياسة يوتيوب تمنع تغطيته). */
+@media(orientation:landscape) and (max-height:540px){
+  .lm{display:block;padding:0;background:#000}
+  .lm-card{display:grid;grid-template-columns:minmax(0,1fr) 56px;grid-template-rows:minmax(0,1fr);width:100%;height:100%;max-height:none;overflow:hidden;border:0;border-radius:0;background:#000}
+  .lm-stage{grid-column:1;grid-row:1;aspect-ratio:auto;min-height:0}
+  .lm-top{grid-column:2;grid-row:1;flex-direction:column;align-items:center;justify-content:flex-start;gap:0;padding:6px 0;background:#000}
+  .lm-t{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+  .lm-top .lm-x{background:rgba(255,255,255,.12)}
+  .lm-meta{display:none}
+}
+@media(prefers-reduced-motion:reduce){.lc,.lc-th img,.lc-play,.lc-go .i{transition:none}.lc:hover{transform:none}}

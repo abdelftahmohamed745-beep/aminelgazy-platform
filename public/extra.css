@@ -1,0 +1,129 @@
+/* ============================================================
+   extra.css — أنماط الصفحات الإضافية والاشتراكات
+   (FAQ / الشروط / الخصوصية / التواصل / 404 / تفعيل الكود)
+   مبنيّة على نفس متغيّرات student-courses.css وهوية المنصة.
+   ============================================================ */
+
+/* ---------- عناوين ومحتوى الصفحات النصية ---------- */
+.gp-eyebrow{display:inline-flex;align-items:center;gap:8px;margin-bottom:10px}
+.gp-lead{max-width:640px;color:var(--mut);font-size:17px}
+.gp-meta{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border-radius:999px;background:var(--sky);color:var(--den);font-size:13px;font-weight:600;margin-bottom:26px}
+.gp-meta .i{width:16px;height:16px}
+
+.faq-group{margin-bottom:38px}
+.faq-group>h2{font-size:22px;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+.faq-group>h2::before{content:"";width:7px;height:22px;border-radius:4px;background:var(--amb);flex:none}
+details.gp-d{background:var(--card);border:1px solid var(--bd);border-radius:18px;margin-bottom:12px;padding:0 22px;transition:border-color .2s}
+details.gp-d[open]{border-color:color-mix(in srgb,var(--den) 45%,var(--bd))}
+details.gp-d summary{font-size:16.5px}
+details.gp-d p{padding-bottom:18px;color:var(--mut);font-size:15.5px;line-height:1.9}
+details.gp-d p+p{padding-top:0;margin-top:-6px}
+details.gp-d ul{margin:0 0 18px;padding-inline-start:20px;color:var(--mut);font-size:15px;line-height:1.9}
+details.gp-d code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;background:var(--sky);color:var(--den);padding:2px 7px;border-radius:6px;direction:ltr;unicode-bidi:embed;display:inline-block}
+details.gp-d a{color:var(--den);font-weight:600;text-decoration:underline;text-underline-offset:3px}
+
+.legal{max-width:848px}
+.legal h2{font-size:23px;margin:34px 0 12px}
+.legal h2:first-of-type{margin-top:0}
+.legal p,.legal li{color:var(--mut);font-size:15.5px;line-height:1.95}
+.legal p+p{margin-top:10px}
+.legal ul,.legal ol{margin:10px 0 0;padding-inline-start:22px;display:grid;gap:8px}
+.legal strong{color:var(--ink)}
+.legal .gp-note{margin-top:26px;padding:16px 20px;border-radius:16px;background:var(--sky);border:1px solid color-mix(in srgb,var(--den) 22%,var(--bd));color:var(--ink);font-size:14.5px}
+.legal .gp-note b{color:var(--den)}
+
+/* ---------- بطاقات عامة ---------- */
+.gp-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:22px}
+.gp-card{background:var(--card);border:1px solid var(--bd);border-radius:22px;padding:26px}
+.gp-card h3{font-size:18px;margin-bottom:8px}
+.gp-card p{color:var(--mut);font-size:15px}
+.gp-card .ic{margin-bottom:16px}
+.gp-card .i{width:26px;height:26px}
+.gp-links{display:grid;gap:10px;margin-top:14px}
+.gp-links a{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 16px;border-radius:12px;background:var(--sky);font-weight:600;font-size:14.5px;transition:background .2s}
+.gp-links a:hover{background:color-mix(in srgb,var(--sky) 65%,var(--amb))}
+.gp-links .i{width:16px;height:16px;transform:scaleX(-1);opacity:.7}
+.gp-cta{margin-top:34px;padding:30px;border-radius:24px;background:linear-gradient(135deg,var(--dk),#0F5C66);color:#fff;display:flex;gap:22px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.gp-cta h2{font-size:22px;color:#fff}
+.gp-cta p{color:#CBE6E1;margin-top:6px;font-size:14.5px}
+.gp-cta .btn{flex:none}
+html[data-theme=dark] .gp-cta{background:linear-gradient(135deg,#0A1626,#0F2B33)}
+
+/* ---------- التواصل ---------- */
+.contact-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:26px;align-items:start}
+.contact-card{position:sticky;top:24px}
+.ct-row{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-bottom:1px dashed var(--bd)}
+.ct-row:last-of-type{border-bottom:0}
+.ct-row .ic{width:42px;height:42px;border-radius:12px;background:var(--sky);color:var(--den);display:grid;place-items:center;flex:none}
+.ct-row .ic .i{width:20px;height:20px}
+.ct-row small{display:block;color:var(--mut);font-size:12.5px;margin-bottom:2px}
+.ct-row b,.ct-row a{font-size:15px;font-weight:700}
+.ct-row a{color:var(--den)}
+.ct-row a:hover{text-decoration:underline}
+.ct-hours{margin-top:18px;padding:14px 16px;border-radius:14px;background:var(--sky);font-size:13.5px;color:var(--mut)}
+.ct-hours b{color:var(--ink)}
+
+.fm{display:grid;gap:18px}
+.fm .f{display:grid;gap:7px}
+.fm label{font-size:14px;font-weight:700}
+.fm .req{color:#C0392B}
+.fm input,.fm textarea{width:100%;font-family:inherit;font-size:15.5px;color:var(--ink);background:var(--bg);border:1.5px solid var(--bd);border-radius:12px;padding:12px 14px;min-height:48px;transition:border-color .2s,box-shadow .2s}
+.fm textarea{min-height:150px;resize:vertical;padding-top:12px}
+.fm input:focus,.fm textarea:focus{outline:none;border-color:var(--den);box-shadow:0 0 0 3px color-mix(in srgb,var(--den) 18%,transparent)}
+.fm .f.bad input,.fm .f.bad textarea{border-color:#C0392B;box-shadow:0 0 0 3px rgba(192,57,43,.12)}
+.fm .err{margin:0;color:#B02A1E;font-size:12.5px;min-height:1px}
+.fm .err:empty{display:none}
+.fm .hint{color:var(--mut);font-size:12.5px}
+.fm .btn{justify-self:start;min-width:170px}
+.fm .btn[disabled]{opacity:.65;cursor:not-allowed}
+.gp-msg{margin:0;padding:13px 16px;border-radius:12px;font-size:14.5px;background:var(--sky);border:1px solid color-mix(in srgb,var(--den) 30%,var(--bd))}
+.gp-msg.bad{background:#FDECEA;border-color:#F3B9B3;color:#8E241A}
+.gp-msg.ok{background:#E9F7EE;border-color:#B7E3C4;color:#145C31}
+html[data-theme=dark] .gp-msg.bad{background:#3A1613;border-color:#7A2A22;color:#FFC9C2}
+html[data-theme=dark] .gp-msg.ok{background:#0E2B1A;border-color:#2D6B43;color:#B8F0CB}
+html[data-theme=dark] .fm .btn[disabled]{opacity:.6}
+
+/* ---------- تفعيل الاشتراك (الملف الشخصي) ---------- */
+.enr{display:grid;grid-template-columns:1.05fr .95fr;gap:30px;padding:30px;border-radius:26px;border:1px solid var(--bd);background:
+  radial-gradient(60% 90% at 100% 0,rgba(198,217,75,.18),transparent 65%),
+  radial-gradient(55% 90% at 0 100%,rgba(11,122,113,.12),transparent 70%),var(--card)}
+.enr h2{font-size:23px;margin:2px 0 8px}
+.enr .enr-p{color:var(--mut);font-size:14.5px;max-width:46ch}
+.enr-list{list-style:none;margin:18px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:8px}
+.enr-list li{display:inline-flex;align-items:center;gap:7px;padding:7px 12px;border-radius:999px;background:var(--sky);color:var(--den);font-size:12.5px;font-weight:700}
+.enr-list li .i{width:14px;height:14px}
+.enr-list .none{background:transparent;color:var(--mut);font-weight:500;padding-inline:0}
+.enr-form{display:grid;gap:10px;align-content:start;background:var(--bg);border:1px solid var(--bd);border-radius:18px;padding:20px}
+.enr-form label{font-size:13.5px;font-weight:700}
+.enr-row{display:flex;gap:10px}
+.enr-row input{flex:1;min-width:0;font-family:inherit;font-size:15px;color:var(--ink);background:var(--card);border:1.5px solid var(--bd);border-radius:12px;padding:12px 14px;min-height:48px;text-transform:uppercase;letter-spacing:.04em}
+.enr-row input:focus{outline:none;border-color:var(--den);box-shadow:0 0 0 3px color-mix(in srgb,var(--den) 18%,transparent)}
+.enr-row.bad input{border-color:#C0392B;box-shadow:0 0 0 3px rgba(192,57,43,.12)}
+.enr-form .gp-msg{margin:2px 0 0;font-size:13px;line-height:1.8}
+.enr-form .gp-msg a{font-weight:700;text-decoration:underline;text-underline-offset:3px;color:inherit}
+.enr-row .btn{flex:none;padding:12px 20px;min-height:48px;font-size:15px}
+.enr-form .err{margin:0;color:#B02A1E;font-size:12.5px}
+.enr-form .err:empty{display:none}
+.enr-hint{background:transparent;border:0;padding:0;margin:2px 0 0}
+.enr-hint summary{font-size:12.5px;color:var(--mut);padding:4px 0;min-height:0}
+.enr-hint summary::after{font-size:18px}
+.enr-hint p{color:var(--mut);font-size:12.5px;line-height:1.9;padding:2px 0 0}
+.enr-hint code{font-family:ui-monospace,Menlo,monospace;background:var(--sky);color:var(--den);padding:2px 6px;border-radius:5px;direction:ltr;display:inline-block;margin:2px 2px 0}
+
+/* ---------- 404 ---------- */
+.nf-wrap{text-align:center;max-width:640px;margin:0 auto}
+.nf-code{font:900 clamp(88px,16vw,160px)/1 'Cairo',Tahoma,sans-serif;color:var(--den);letter-spacing:-.02em}
+.nf-code span{color:var(--amb);-webkit-text-stroke:3px var(--ink)}
+.nf-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:26px}
+
+@media(max-width:900px){
+  .contact-grid,.enr{grid-template-columns:1fr;gap:22px}
+  .contact-card{position:static}
+  .enr{padding:22px}
+}
+@media(max-width:560px){
+  .enr-row{flex-direction:column}
+  .enr-row .btn{width:100%}
+  .gp-cta{padding:24px}
+  .gp-cta .btn{width:100%}
+}

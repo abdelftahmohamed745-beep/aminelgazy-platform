@@ -1,0 +1,27 @@
+{
+  "name": "aminelgazy-platform",
+  "version": "1.0.0",
+  "private": true,
+  "description": "منصة مستر أمين الغازي — نسخة محلية مُعاد بناؤها (واجهة عربية RTL + خادم Node بلا إطار عمل)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js",
+    "test": "node tools/smoke-test.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": [
+    "arabic",
+    "rtl",
+    "education",
+    "vercel",
+    "serverless",
+    "node"
+  ],
+  "dependencies": {
+    "@vercel/blob": "^2.8.2"
+  },
+  "license": "MIT"
+}

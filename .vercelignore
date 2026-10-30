@@ -1,0 +1,7 @@
+_evidence/
+data/state.json
+data/state.json.*.tmp
+.github/
+tools/
+.git/
+*.log

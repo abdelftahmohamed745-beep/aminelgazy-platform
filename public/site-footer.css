@@ -1,0 +1,50 @@
+/* Site footer — teal gradient body + lime signature bar (see dev-signature.css). Mobile-first. */
+footer.sf{background:linear-gradient(180deg,#0A6B64 0%,#07484B 100%);color:#E6F6F3;font-family:'Cairo',Tahoma,sans-serif;direction:rtl;margin:0;padding:0;line-height:1.7;clear:both}
+footer.sf *{box-sizing:border-box}
+footer.sf a{color:inherit;text-decoration:none}
+footer.sf a:hover{color:#C6D94B}
+footer.sf a:focus-visible{outline:2px solid #C6D94B;outline-offset:2px;border-radius:4px}
+footer.sf h4{margin:0;font:700 12.5px/1.6 'Cairo',Tahoma,sans-serif;color:#C6D94B}
+footer.sf ul{list-style:none;margin:0;padding:0}
+footer.sf .sf-in{max-width:1000px;margin:0 auto;padding:24px 18px 14px;display:flex;flex-direction:column;gap:16px}
+footer.sf .sf-brand{text-align:center}
+footer.sf .sf-logo{display:inline-flex;flex-direction:column;align-items:center;gap:8px;color:#fff;font:700 17px/1.3 'Cairo',Tahoma,sans-serif}
+footer.sf .sf-mk{width:44px;height:44px;border-radius:13px;background:#C6D94B;color:#0B1C33;display:grid;place-items:center;font:800 23px/1 'Cairo',sans-serif}
+footer.sf .sf-logo small{display:block;font:500 12.5px/1.4 'Cairo',Tahoma,sans-serif;color:#CBEAE5}
+footer.sf .sf-brand p{margin:8px 0 0;font-size:13.5px;line-height:1.7}
+footer.sf .sf-card{background:rgba(255,255,255,.09);border:1px solid rgba(255,255,255,.18);border-radius:18px;padding:12px 14px}
+footer.sf .sf-q{display:grid;grid-template-columns:1fr 1fr;gap:0 12px;font-size:14px}
+footer.sf .sf-q a,footer.sf .sf-s a{display:flex;align-items:center;gap:8px;min-height:40px}
+footer.sf .sf-q a::before{content:"";width:6px;height:6px;border-radius:50%;background:#C6D94B;flex:none}
+footer.sf .sf-sup{margin-top:6px;padding-top:8px;border-top:1px solid rgba(255,255,255,.18)}
+footer.sf .sf-s{display:flex;flex-wrap:wrap;gap:0 18px;font-size:13.5px}
+footer.sf .sf-s a{min-height:38px}
+footer.sf .sf-ct{text-align:center}
+footer.sf .sf-ct h4{margin-bottom:8px}
+footer.sf .sf-ct ul{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;font-size:12.5px}
+footer.sf .sf-ct li{padding:6px 12px;border:1px dashed rgba(198,217,75,.7);border-radius:999px}
+footer.sf .sf-cp{margin:0;padding-top:12px;border-top:1px solid rgba(255,255,255,.18);text-align:center;font-size:12.5px;color:#CBEAE5}
+@media(min-width:860px){
+footer.sf .sf-in{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:36px;align-content:start;padding:32px 20px 16px}
+footer.sf .sf-brand{text-align:start}
+footer.sf .sf-logo{flex-direction:row;gap:12px;text-align:start}
+footer.sf .sf-brand p{margin-top:12px;font-size:14px;line-height:1.8}
+footer.sf .sf-card{display:contents}
+footer.sf h4{font-size:14.5px;margin-bottom:10px}
+footer.sf .sf-q{grid-template-columns:1fr;gap:8px;font-size:14px}
+footer.sf .sf-q a,footer.sf .sf-s a{min-height:0}
+footer.sf .sf-q a::before{display:none}
+footer.sf .sf-sup{margin:0;padding:0;border:0}
+footer.sf .sf-s{flex-direction:column;gap:8px;font-size:14px}
+footer.sf .sf-ct{text-align:start}
+footer.sf .sf-ct h4{margin-bottom:10px}
+footer.sf .sf-ct ul{flex-direction:column;justify-content:flex-start;gap:8px;font-size:14px}
+footer.sf .sf-ct li{padding:0;border:0;border-radius:0}
+footer.sf .sf-cp{grid-column:1/-1;font-size:13px}
+}
+/* تواصل معنا: رقم الدعم + واتساب + فيسبوك بلونه الطبيعي */
+footer.sf .sf-ct a{display:inline-flex;align-items:center;gap:8px}
+footer.sf .sf-ct .sf-ic{width:24px;height:24px;flex:none;display:block}
+footer.sf .sf-ct .sf-wa .sf-ic{fill:#25D366}
+footer.sf .sf-ct .sf-fb .sf-ic{border-radius:50%;box-shadow:0 0 0 1.5px rgba(255,255,255,.9)}
+footer.sf .sf-ct .sf-fb{padding:2px}

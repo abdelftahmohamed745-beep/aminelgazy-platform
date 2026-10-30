@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<script src="theme.js"></script>
+<title>تسجيل الدخول · منصة مستر أمين الغازي</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&family=El+Messiri:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff;--card:#fff;--bd:#E3E8EC;--ink:#0B1C33;--den:#0B7A71;--sky:#E6F6F3;--mut:#4A5563;--em:#0B7A71;--bad:#B42318;--badbg:#FEF0EE;--ok:#0B7A71;--okbg:#E6F6F3}
+[data-theme=dark]{--bg:#08111F;--card:#0F1B2D;--bd:#22344D;--ink:#EEF3FB;--den:#3DD6C3;--sky:#0F2B33;--mut:#A9B6C6;--em:#C6D94B;--bad:#FF9E94;--badbg:#2A1517;--ok:#3DD6C3;--okbg:#0F2B33}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;display:flex;flex-direction:column;font-family:'Cairo',Tahoma,sans-serif;background:var(--bg);color:var(--ink)}
+a{color:inherit}a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--den);outline-offset:3px}
+.i{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.w{max-width:1200px;margin-inline:auto;padding-inline:24px}
+.hx{background:var(--bg);border-bottom:1px solid var(--bd)}
+.hd{display:flex;align-items:center;gap:20px;min-height:76px}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;font:800 20px 'Cairo',Tahoma,sans-serif}
+.brand__cap{width:30px;height:30px;fill:none;stroke:var(--em);stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.brand__em{color:var(--em)}
+.nav{display:flex;gap:26px;flex:1;justify-content:center}.nav a{text-decoration:none;font-weight:600;font-size:15px;padding:8px 0}.nav a:hover{color:var(--den)}
+.tg{position:relative;display:flex;align-items:center;width:76px;height:40px;padding:0 9px;border:0;border-radius:999px;background:#C6D94B;color:#0B1C33;cursor:pointer;justify-content:space-between}
+.tg::before{content:"";position:absolute;inset-block:4px;inset-inline-start:4px;width:32px;border-radius:50%;background:#fff;transition:transform .25s}
+[data-theme=dark] .tg::before{transform:translateX(36px)}
+.tg .i{position:relative;z-index:1;width:20px;height:20px}
+.hs{display:flex;align-items:center;gap:14px}
+.hl,.hb{display:inline-flex;align-items:center;gap:8px;min-height:44px;text-decoration:none;font-weight:700;font-size:15px}
+.hl{color:var(--den)}
+.hb{padding:0 20px;border-radius:10px;background:#C6D94B;color:#0B1C33}
+.ac{height:3px;background:linear-gradient(90deg,transparent,#0F8A80 30%,#0F8A80 70%,transparent)}
+.shell{flex:1;display:grid;grid-template-columns:minmax(300px,.8fr) minmax(0,1.2fr);gap:32px;width:100%;max-width:1200px;margin-inline:auto;padding:32px 24px 56px}
+.side{position:relative;isolation:isolate;overflow:hidden;display:flex;flex-direction:column;min-height:580px;padding:40px 36px 0;border-radius:32px;background:linear-gradient(160deg,#0B1C33 0%,#0B2F3A 62%,#0B7A71 135%);color:#fff}
+.side::after{content:"";position:absolute;z-index:-1;top:-90px;inset-inline-start:-70px;width:260px;height:260px;border-radius:50%;border:2px solid rgba(198,217,75,.35)}
+.side h2{margin:0;font:900 clamp(26px,3vw,36px)/1.45 'Cairo',Tahoma,sans-serif}
+.side p{margin:12px 0 0;color:#C9D6E6;line-height:1.9}
+.ft{list-style:none;margin:22px 0 0;padding:0;display:grid;gap:12px}
+.ft li{display:flex;align-items:center;gap:12px;font-weight:700}
+.ft .t{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;background:rgba(255,255,255,.1);color:#C6D94B}
+.ft .i{width:24px;height:24px}
+.pic{position:relative;margin-top:auto;display:flex;justify-content:center}
+.pic::before{content:"";position:absolute;bottom:0;width:80%;aspect-ratio:1;border-radius:50%;background:#C6D94B;transform:translateY(24%)}
+.pic img{position:relative;display:block;max-height:390px;width:auto;max-width:100%;object-fit:contain}
+.main{display:flex;align-items:center}
+.card{width:100%;padding:clamp(24px,4vw,48px);border:1px solid var(--bd);border-radius:32px;background:var(--card);box-shadow:0 30px 60px -42px rgba(11,28,51,.45)}
+.view[hidden]{display:none}
+.back{display:inline-flex;align-items:center;gap:6px;min-height:44px;margin-bottom:6px;color:var(--den);font-weight:700;text-decoration:none}.back .i{width:18px;height:18px}
+h1{margin:8px 0 0;font:900 clamp(26px,3.4vw,38px)/1.45 'Cairo',Tahoma,sans-serif;outline:none}
+.sub{margin:8px 0 0;color:var(--mut);line-height:1.9;font-size:16.5px}
+.eb{display:inline-flex;align-items:center;min-height:32px;padding:2px 14px;border-radius:999px;font-weight:700;font-size:14px}
+.eb.c1{background:#C6D94B;color:#0B1C33}.eb.c2{background:var(--sky);color:var(--den)}.eb[hidden]{display:none}
+.opts{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:28px}
+.opt{display:flex;flex-direction:column;gap:10px;padding:26px 22px;border:1.5px solid var(--bd);border-radius:24px;background:var(--card);text-decoration:none;transition:transform .2s,border-color .2s,box-shadow .2s}
+.opt:hover{transform:translateY(-3px);border-color:var(--den);box-shadow:0 18px 36px -24px rgba(11,122,113,.6)}
+.opt .ic{width:72px;height:72px;border-radius:22px;display:grid;place-items:center}.opt .ic .i{width:38px;height:38px}
+.opt.c1 .ic{background:#C6D94B;color:#0B1C33}.opt.c2 .ic{background:#0B7A71;color:#fff}
+.opt h2{margin:6px 0 0;font:800 21px/1.45 'Cairo',Tahoma,sans-serif}
+.opt p{flex:1;margin:0;color:var(--mut);line-height:1.8;font-size:15px}
+.go{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:48px;margin-top:10px;border-radius:999px;font-weight:800}
+.opt.c1 .go{background:#C6D94B;color:#0B1C33}.opt.c2 .go{background:#0B7A71;color:#fff}
+.chead{display:none;align-items:center;gap:16px;margin-top:4px}
+.av{position:relative;flex:none;width:112px;height:112px;overflow:hidden;border-radius:50%;background:#C6D94B;border:4px solid var(--card);box-shadow:0 0 0 3px #C6D94B}
+.av img{width:100%;height:100%;object-fit:cover;object-position:50% 6%}
+.sec{margin-top:26px;padding:24px;border:1px solid var(--bd);border-radius:24px;background:var(--sky)}
+.sec .btn{margin-top:18px}
+.fs{display:grid;gap:16px}
+.f label{display:block;margin-bottom:6px;font-weight:700;font-size:15px}
+.in{position:relative}
+.in input,.in select{width:100%;height:54px;padding:0 16px;border:1.5px solid var(--bd);border-radius:14px;background:var(--bg);color:var(--ink);font:500 16px 'Cairo',Tahoma,sans-serif}
+.in input:focus,.in select:focus{border-color:var(--den)}
+.f:has(.eye) input{padding-inline-end:84px}
+.eye{position:absolute;inset-block:5px;inset-inline-end:6px;min-width:44px;padding:0 10px;border:0;background:none;color:var(--den);font:700 14px 'Cairo',Tahoma,sans-serif;cursor:pointer}
+.f small{display:block;margin-top:4px;color:var(--mut);font-size:13px}
+.err{margin:4px 0 0;color:var(--bad);font-size:13.5px;font-weight:600}.err:empty{display:none}
+.f.bad input,.f.bad select{border-color:var(--bad)}
+#f-code input{height:68px;font-size:24px;font-weight:700;letter-spacing:.16em;text-align:center;direction:ltr}
+#f-reg .fs{grid-template-columns:1fr 1fr}#f-reg [data-k=name],#f-reg [data-k=grade]{grid-column:1/-1}
+.al{margin-bottom:16px;padding:12px 16px;border-radius:14px;font-weight:600;line-height:1.7}.al[hidden]{display:none}
+.al.bad{background:var(--badbg);color:var(--bad)}.al.ok{background:var(--okbg);color:var(--ok)}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:54px;margin-top:22px;border:0;border-radius:999px;background:#0B7A71;color:#fff;font:800 17px 'Cairo',Tahoma,sans-serif;text-decoration:none;cursor:pointer}
+.btn:hover{background:#096A62}.btn:disabled{opacity:.75;cursor:wait}
+.btn.ld::after{content:"";width:18px;height:18px;border:3px solid rgba(255,255,255,.4);border-top-color:#fff;border-radius:50%;animation:sp .8s linear infinite}
+@keyframes sp{to{transform:rotate(360deg)}}
+.foot{margin:22px 0 0;text-align:center;color:var(--mut)}.foot a{color:var(--den);font-weight:800}
+.alt{display:flex;align-items:center;justify-content:center;gap:8px;min-height:50px;margin-top:14px;border:1.5px solid var(--den);border-radius:999px;color:var(--den);font-weight:800;text-decoration:none}
+@media(max-width:900px){
+.nav{display:none}.hd{justify-content:space-between}
+.shell{grid-template-columns:1fr;gap:16px;padding:16px 16px 40px}
+.side{min-height:0;padding:22px 22px 0;display:grid;grid-template-columns:1fr auto;column-gap:12px;border-radius:26px}
+.side p,.ft{display:none}.side h2{align-self:center;font-size:22px}
+.pic{margin:0;align-self:end}.pic img{max-height:140px}.pic::before{width:130px}
+.opts{grid-template-columns:1fr}.chead{display:flex}
+body[data-v=center] .side{display:none}}
+@media(max-width:600px){.hl{display:none}.w{padding-inline:16px}.brand{font-size:17px}#f-reg .fs{grid-template-columns:1fr}.card{border-radius:26px}.av{width:92px;height:92px}}
+@media(prefers-reduced-motion:reduce){.opt,.tg::before{transition:none}.btn.ld::after{animation-duration:2s}}
+
+/* ===== موبايل: نفس هيدر index.html + تحسين الصفحة ===== */
+.hm{display:none}
+@media(max-width:720px){
+.hx{border-bottom:0}
+.hx .hd{flex-wrap:wrap;gap:8px;row-gap:0;padding:10px 16px;min-height:0}
+.hx .brand{order:1;flex:1 1 auto;min-width:0;gap:8px;white-space:nowrap;font:500 clamp(14px,4.5vw,19px)/1.3 'El Messiri','Cairo',Tahoma,sans-serif}
+.hx .brand__cap{width:clamp(20px,6vw,24px);height:clamp(20px,6vw,24px);flex:none;stroke:color-mix(in srgb,#C6D94B 45%,var(--ink));stroke-width:1.7}
+.hx .brand__em{color:color-mix(in srgb,#C6D94B 45%,var(--ink));font-weight:700;font-size:1.25em}
+.hx .tg{order:2;margin-inline-start:auto;display:grid;grid-template-columns:1fr 1fr;place-items:center;width:64px;height:36px;padding:0}
+.hx .tg::before{width:28px;box-shadow:0 1px 3px rgba(11,28,51,.25)}
+[data-theme=dark] .hx .tg::before{transform:translateX(28px)}
+.hx .tg .i{width:16px;height:16px}
+.hx .hm{order:3;display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;width:42px;height:42px;padding:0;border:1.5px solid var(--bd);border-radius:12px;background:var(--card);cursor:pointer;-webkit-tap-highlight-color:transparent}
+.hm span{display:block;width:19px;height:2px;border-radius:2px;background:var(--ink);transition:transform .25s,opacity .2s}
+.hm:hover{border-color:#C6D94B}
+.hx.is-open .hm span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hx.is-open .hm span:nth-child(2){opacity:0}
+.hx.is-open .hm span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.hx .nav{order:4;display:none;flex:none;flex-direction:column;justify-content:flex-start;width:100%;margin:10px 0 0;padding:10px 0 2px;gap:2px;border-top:1px solid var(--bd)}
+.hx .nav a{padding:12px 14px;font-size:16px;font-weight:500;border-radius:10px}
+.hx .nav a:hover{background:color-mix(in srgb,var(--ink) 8%,transparent);color:var(--ink)}
+.hx .hs{order:5;display:none;width:100%;gap:10px;padding:12px 0 8px}
+.hx .hs a{flex:1;min-height:46px;justify-content:center;padding:10px 12px;border-radius:12px;font-size:15px;white-space:nowrap}
+.hx .hl{display:inline-flex;border:1.5px solid var(--bd);background:var(--card)}
+.hx .hb{border:1.5px solid #A9BC2A}
+.hx.is-open .nav,.hx.is-open .hs{display:flex}
+.hx .ac{background:linear-gradient(90deg,#0F5C66 0 84%,#20C4B0 84% 100%)}
+}
+@media(max-width:340px){.hx .brand__cap{display:none}}
+@media(max-width:600px){
+.shell{gap:14px;padding:14px 16px 36px}
+.side,body[data-v=center] .side{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-rows:minmax(0,1fr);column-gap:6px;height:clamp(180px,30vh,310px);height:clamp(180px,30svh,310px);min-height:0;padding:18px 18px 0;border-radius:26px}
+.side h2{align-self:center;font-size:clamp(19px,5.6vw,24px);line-height:1.5}
+.pic{align-self:end;height:100%;align-items:flex-end}
+.pic img{height:100%;width:auto;max-height:none;max-width:none;aspect-ratio:1096/1436}
+.pic::before{width:92%}
+.chead{display:none}
+.card{padding:22px 18px 24px}
+h1{font-size:clamp(23px,6.6vw,28px);line-height:1.4}
+.sub{font-size:15px;line-height:1.8}
+.back{min-height:40px}
+.opts{gap:12px;margin-top:20px}
+.opt{gap:8px;padding:18px 16px;border-radius:20px}
+.opt .ic{width:56px;height:56px;border-radius:18px}.opt .ic .i{width:30px;height:30px}
+.opt h2{font-size:19px}
+.sec{margin-top:18px;padding:18px 16px;border-radius:20px}
+.fs{gap:14px}
+.in input,.in select{height:52px}
+.btn{min-height:52px;margin-top:18px;font-size:16.5px}
+.foot{margin-top:18px;font-size:15px}
+.alt{min-height:48px}
+}
+@media(prefers-reduced-motion:reduce){.hm span{transition:none}}
+</style>
+<link rel="stylesheet" href="mobile-header.css">
+<link rel="stylesheet" href="dev-signature.css">
+</head>
+<body data-v="choose">
+<header class="hx"><div class="w hd">
+<a class="brand" href="index.html"><svg class="brand__cap" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 4.5 2.5 9.5 12 14.5l9.5-5Z"/><path d="M6.5 12.2V16c0 1.4 2.5 3 5.5 3s5.5-1.6 5.5-3v-3.8"/><path d="M21.5 9.5V15"/></svg><span><span class="brand__em">الأمين</span> في اللغة العربية</span></a>
+<nav class="nav" aria-label="التنقل الرئيسي"><a href="index.html">الرئيسية</a><a href="index.html#courses">الدورات</a><a href="lectures.html">المحاضرات</a><a href="exam.html">الاختبارات</a><a href="index.html#teacher">عن المدرّس</a><a href="index.html#features">المميزات</a><a href="index.html#contact">تواصل معنا</a></nav>
+<button class="tg" id="tg" dir="ltr" type="button" aria-label="تبديل الوضع الليلي / النهاري"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1111.2 3a7 7 0 009.8 9.8z"/></svg></button>
+<div class="hs"><a class="hl" href="#/login"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 3h4a2 2 0 012 2v14a2 2 0 01-2 2h-4M10 17l5-5-5-5M15 12H3"/></svg>تسجيل الدخول</a><a class="hb" href="#/choose"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="4"/><path d="M2 21a7 7 0 0114 0M19 8v6M16 11h6"/></svg>أنشئ حسابك!</a></div>
+<button class="hm" type="button" aria-label="القائمة" aria-expanded="false"><span></span><span></span><span></span></button>
+</div><div class="ac" aria-hidden="true"></div></header>
+<div class="shell">
+<aside class="side">
+<h2>تعلّم اللغة العربية بثقة.</h2>
+<p>حصص مسجّلة ومباشرة، واختبارات تفاعلية، ومتابعة لتقدّمك في مكان واحد.</p>
+<ul class="ft"><li><span class="t"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M10 8.5v7l6-3.5z"/></svg></span>حصص مسجّلة ومباشرة</li><li><span class="t"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 8h6M9 12h6M9 16l1.5 1.5L14 14"/></svg></span>اختبارات تفاعلية</li><li><span class="t"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></svg></span>متابعة مستمرة لتقدّمك</li></ul>
+<div class="pic"><img src="assets/teacher-cutout.webp" alt="مستر أمين الغازي"></div>
+</aside>
+<main class="main"><div class="card">
+
+<section class="view" id="v-choose">
+<h1 tabindex="-1">أهلًا بك! اختر نوع حسابك</h1>
+<p class="sub">حدّد هل أنت طالب داخل السنتر أم خارجه، ثم أكمل الدخول أو إنشاء الحساب.</p>
+<div class="opts">
+<a class="opt c1" href="#/center"><span class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 21h18M5 21V7l7-4 7 4v14M9 21v-6h6v6M9 10h.01M15 10h.01"/></svg></span><h2>أنا طالب داخل السنتر</h2><p>ادخل بكود السنتر الذي حصلت عليه من السنتر.</p><span class="go">الدخول بكود السنتر <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></span></a>
+<a class="opt c2" href="#/signin" data-who="external"><span class="ic"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11l9-8 9 8M5 10v10h14V10M10 20v-6h4v6"/></svg></span><h2>أنا طالب خارج السنتر</h2><p>سجّل دخولك برقم هاتفك وكلمة المرور، أو أنشئ حسابًا جديدًا.</p><span class="go">تسجيل الدخول <svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"/></svg></span></a>
+</div>
+</section>
+
+<section class="view" id="v-center" hidden>
+<a class="back" href="#/choose"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>رجوع</a>
+<div class="chead"><div class="av"><img src="assets/teacher-cutout.webp" alt="مستر أمين الغازي"></div></div>
+<span class="eb c1" style="margin-top:8px">طالب داخل السنتر</span>
+<h1 tabindex="-1">الدخول بكود السنتر</h1>
+<p class="sub">أدخل كودك المسجّل من لوحة التحكم للدخول مباشرةً إلى حسابك.</p>
+<div class="sec"><form id="f-code" novalidate><div class="al" role="alert" hidden></div><div class="fs"></div><button class="btn" type="submit">الدخول بالكود</button></form></div>
+<p class="foot">لديك حساب خارج السنتر؟ <a href="#/signin" data-who="external">سجّل دخولك برقم الهاتف</a></p>
+</section>
+
+<section class="view" id="v-register" hidden>
+<a class="back" id="reg-back" href="#/choose"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>رجوع</a>
+<span class="eb c1" id="rb" hidden>تم التحقق من كود السنتر</span>
+<h1 tabindex="-1" id="rt">إنشاء حساب جديد</h1>
+<p class="sub">أدخل بياناتك لإنشاء حسابك. جميع الحقول مطلوبة.</p>
+<form id="f-reg" novalidate style="margin-top:22px"><div class="al" role="alert" hidden></div><div class="fs"></div><button class="btn" type="submit">إنشاء حساب</button></form>
+<p class="foot">لديك حساب بالفعل؟ <a id="reg-login" href="#/signin" data-who="external">تسجيل الدخول</a></p>
+</section>
+
+<section class="view" id="v-signin" hidden>
+<a class="back" href="#/choose"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>رجوع</a>
+<span class="eb c2" id="sb">طالب خارج السنتر</span>
+<h1 tabindex="-1">أهلًا بعودتك</h1>
+<p class="sub">سجّل دخولك لمتابعة رحلتك التعليمية.</p>
+<form id="f-login" novalidate style="margin-top:22px"><div class="al" role="alert" hidden></div><div class="fs"></div><button class="btn" type="submit">تسجيل الدخول</button></form>
+<a class="alt" id="sg-reg" href="#/register"><svg class="i" viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="4"/><path d="M2 21a7 7 0 0114 0M19 8v6M16 11h6"/></svg>إنشاء حساب</a>
+</section>
+
+</div></main>
+</div>
+<script>
+const $=s=>document.querySelector(s),PHONE=/^01[0125]\d{8}$/;
+const GR=['First Preparatory','Second Preparatory','Third Preparatory','First Secondary','Second Secondary – Baccalaureate','Third Secondary'];
+const GL={'First Preparatory':'الصف الأول الإعدادي','Second Preparatory':'الصف الثاني الإعدادي','Third Preparatory':'الصف الثالث الإعدادي','First Secondary':'الصف الأول الثانوي','Second Secondary – Baccalaureate':'الصف الثاني الثانوي – بكالوريا','Third Secondary':'الصف الثالث الثانوي'};
+const state={mode:null};
+// ---- Validation rules (mirrored on the server) ----
+const ph=m=>v=>!v?m:/\D/.test(v)?'استخدم أرقامًا فقط (0–9) دون حروف أو رموز.':v.length!==11?'يجب أن يتكوّن الرقم من 11 رقمًا بالضبط.':!PHONE.test(v)?'أدخل رقم موبايل مصريًا صحيحًا يبدأ بـ 010 أو 011 أو 012 أو 015.':'';
+const rules={
+ name:v=>{v=v.trim();return !v?'أدخل اسمك بالكامل.':v.split(/\s+/).length<2?'أدخل اسمك الأول والأخير على الأقل.':!/^[\p{L}][\p{L}\s'.-]*$/u.test(v)?'يجب أن يحتوي الاسم على حروف فقط.':''},
+ phone:ph('أدخل رقم هاتفك.'),parent:ph("أدخل رقم هاتف ولي الأمر."),
+ pin:v=>!v?'أدخل كلمة مرور من 6 أرقام.':/\D/.test(v)?'يجب أن تحتوي كلمة المرور على أرقام فقط.':v.length!==6?'يجب أن تتكوّن كلمة المرور من 6 أرقام بالضبط.':'',
+ confirm:(v,g)=>!v?'أكّد كلمة المرور.':v!==g('password')?'كلمتا المرور غير متطابقتين.':'',
+ grade:v=>GR.includes(v)?'':'اختر الصف الدراسي.',
+ code:v=>!v.trim()?'أدخل كود السنتر.':/^[A-Za-z0-9-]{4,32}$/.test(v.trim())?'':'يتكوّن كود السنتر من حروف وأرقام وشرطات فقط.'};
+// ---- Reusable form-field component ----
+function field(p,[name,label,key,o={}]){const id=p+name,pw=o.type==='password';
+ return `<div class="f" data-k="${key}"><label for="${id}">${label}</label><div class="in">${o.select?`<select id="${id}" name="${name}" aria-describedby="${id}-e"><option value="">اختر الصف الدراسي</option>${GR.map(g=>`<option value="${g}">${GL[g]}</option>`).join('')}</select>`:`<input id="${id}" name="${name}" type="${o.type||'text'}" aria-describedby="${id}-e" ${o.attrs||''}>`}${pw?'<button type="button" class="eye" aria-label="إظهار كلمة المرور" aria-pressed="false">إظهار</button>':''}</div>${o.hint?`<small>${o.hint}</small>`:''}<p class="err" id="${id}-e" role="alert"></p></div>`}
+const num='inputmode="numeric" maxlength="11" placeholder="أدخل رقم هاتفك"',pin='inputmode="numeric" maxlength="6" placeholder="6 أرقام"';
+const forms={'f-reg':['r-',[['fullName','الاسم بالكامل','name',{attrs:'autocomplete="name" maxlength="100" placeholder="مثال: أحمد محمد علي"'}],['phone','رقم الهاتف','phone',{attrs:num+' autocomplete="tel"',hint:'رقم موبايل مصري من 11 رقمًا.'}],['parentPhone','رقم هاتف ولي الأمر','parent',{attrs:num,hint:'يمكن أن يختلف عن رقمك.'}],['password','كلمة المرور','pin',{type:'password',attrs:pin+' autocomplete="new-password"',hint:'6 أرقام بالضبط.'}],['confirmPassword','تأكيد كلمة المرور','confirm',{type:'password',attrs:pin+' autocomplete="new-password"'}],['grade','الصف الدراسي','grade',{select:1}]]],
+ 'f-code':['c-',[['code','كود السنتر','code',{attrs:'autocomplete="off" maxlength="32" autocapitalize="characters" placeholder="أدخل كود السنتر هنا"'}]]],
+ 'f-login':['l-',[['phone','رقم الهاتف','phone',{attrs:num+' autocomplete="tel"'}],['password','كلمة المرور','pin',{type:'password',attrs:pin+' autocomplete="current-password"'}]]]};
+for(const[id,[p,defs]]of Object.entries(forms))$('#'+id+' .fs').innerHTML=defs.map(d=>field(p,d)).join('');
+const control=el=>el.querySelector('input,select');
+function setErr(el,m){control(el).setAttribute('aria-invalid',m?'true':'false');el.querySelector('.err').textContent=m;el.classList.toggle('bad',!!m)}
+function check(el){const f=el.closest('form'),k=el.dataset.k;const m=rules[k](control(el).value,n=>f.elements[n].value);setErr(el,m);return m}
+function validate(f){let first=null;f.querySelectorAll('.f').forEach(el=>{if(check(el)&&!first)first=control(el)});first&&first.focus();return !first}
+document.addEventListener('focusout',e=>{const el=e.target.closest&&e.target.closest('.f');if(el){el.dataset.t=1;check(el)}});
+document.addEventListener('input',e=>{const el=e.target.closest&&e.target.closest('.f');if(!el)return;if(el.dataset.t)check(el);if(el.dataset.k==='pin'){const c=el.closest('form').querySelector('[data-k=confirm]');if(c&&c.dataset.t)check(c)}});
+document.addEventListener('click',e=>{const b=e.target.closest('.eye');if(!b)return;const i=b.previousElementSibling,s=i.type==='password';i.type=s?'text':'password';b.textContent=s?'إخفاء':'إظهار';b.setAttribute('aria-pressed',s);b.setAttribute('aria-label',s?'إخفاء كلمة المرور':'إظهار كلمة المرور')});
+// ---- Requests (single-flight, loading state) ----
+const busy=new Set();
+function note(f,m,t){const a=f.querySelector('.al');a.hidden=!m;a.textContent=m||'';a.className='al '+(t||'bad')}
+async function post(f,url,body){if(busy.has(f))return null;busy.add(f);const b=f.querySelector('[type=submit]');b.disabled=true;b.classList.add('ld');b.setAttribute('aria-busy','true');note(f,'');
+ try{const r=await fetch(url,{method:'POST',credentials:'same-origin',headers:{'Content-Type':'application/json'},body:JSON.stringify(body)});return{r,d:await r.json().catch(()=>({}))}}
+ catch{return{r:{ok:false},d:{error:'تعذّر الاتصال بالخادم. تحقّق من اتصالك بالإنترنت وحاول مرة أخرى.'}}}
+ finally{busy.delete(f);b.disabled=false;b.classList.remove('ld');b.removeAttribute('aria-busy')}}
+function serverErrors(f,d,p){note(f,d.error||'حدث خطأ ما. حاول مرة أخرى.');for(const[k,m]of Object.entries(d.fields||{})){const i=f.elements[k];if(i)setErr(i.closest('.f'),m)}if(d.fields&&d.fields.centerCode)location.hash='#/center'}
+const go=(f,d)=>{const name=d&&d.student&&d.student.full_name;note(f,name?'Welcome, '+name:f.id==='f-reg'?'تم إنشاء حسابك بنجاح! جارٍ تحويلك إلى الصفحة الرئيسية…':'تم تسجيل الدخول بنجاح! جارٍ تحويلك إلى الصفحة الرئيسية…','ok');setTimeout(()=>location.href=d.redirect,900)};
+const val=(f,n)=>f.elements[n].value;
+function normalizeCode(value){return String(value||'').trim().replace(/[٠-٩]/g,function(d){return String('٠١٢٣٤٥٦٧٨٩'.indexOf(d))}).replace(/[۰-۹]/g,function(d){return String('۰۱۲۳۴۵۶۷۸۹'.indexOf(d))}).toUpperCase()}
+function sameCode(value,code){return normalizeCode(value)===code}
+async function matchedDocs(collection,code){
+ const found=new Map(),put=function(doc){if(doc&&doc.exists)found.set(doc.id,doc)};
+ try{put(await window.db.collection(collection).doc(code).get())}catch(e){}
+ const values=[code];if(/^\d+$/.test(code))values.push(Number(code));
+ const jobs=[];['centerCode','qrCode','offlineCode','code'].forEach(function(field){values.forEach(function(value){jobs.push(window.db.collection(collection).where(field,'==',value).limit(2).get())})});
+ const results=await Promise.all(jobs.map(function(job){return job.catch(function(){return null})}));
+ results.forEach(function(snapshot){if(snapshot)snapshot.forEach(function(doc){var data=doc.data()||{};if(sameCode(doc.id,code)||['centerCode','qrCode','offlineCode','code'].some(function(key){return sameCode(data[key],code)}))put(doc)})});
+ return Array.from(found.values());
+}
+async function findCenterStudent(code){
+ if(!window.db)throw new Error('offline');
+ const center=await matchedDocs('centerStudents',code);
+ if(center.length>1)throw new Error('duplicate');
+ if(center.length===1)return {collection:'centerStudents',doc:center[0]};
+ const students=await matchedDocs('students',code);
+ if(students.length>1)throw new Error('duplicate');
+ return students.length?{collection:'students',doc:students[0]}:null;
+}
+const SECRET=['centerCode','qrCode','offlineCode','code','password','pin','passcode'];
+function keep(o){const c={...o};SECRET.forEach(k=>delete c[k]);try{localStorage.setItem('alamin_current',JSON.stringify(c))}catch(e){}}
+// الخادم يتحقق من الكود ويحتفظ بالجلسة (كوكي HttpOnly طويل). null = الخادم غير متاح (استضافة ثابتة) فنرجع للتحقق من المتصفح.
+async function serverLogin(code){try{const r=await fetch('/api/center-session',{method:'POST',credentials:'same-origin',headers:{'Content-Type':'application/json'},body:JSON.stringify({code})});
+  if(!(r.headers.get('content-type')||'').includes('json'))return null;const d=await r.json().catch(()=>null);if(!d)return null;
+  return r.ok?d:[400,403,404,409,429].includes(r.status)?{err:d.error||'',fail:1}:null}catch(e){return null}}
+$('#f-code').addEventListener('submit',async e=>{e.preventDefault();const f=e.target;if(!validate(f))return;
+  const code=normalizeCode(val(f,'code')),button=f.querySelector('[type=submit]');button.disabled=true;button.classList.add('ld');button.setAttribute('aria-busy','true');note(f,'');
+  try{let student;const sv=await serverLogin(code);
+   if(sv&&sv.fail){note(f,sv.err||'كود الطالب غير صحيح أو غير مسجّل. تأكد من الكود وحاول مرة أخرى.');return}
+   if(sv&&sv.ok)student=sv.student;
+   else{const found=await findCenterStudent(code);if(!found){note(f,'كود الطالب غير صحيح أو غير مسجّل. تأكد من الكود وحاول مرة أخرى.');return}
+    const data=found.doc.data()||{};student={...data,id:found.doc.id,role:'student',type:'center',studentType:'center',studentCollection:found.collection}}
+   keep(student);
+   const name=String(student.name||student.fullName||student.full_name||student.firstName||'Student').trim();note(f,'Welcome, '+name,'ok');setTimeout(function(){location.href='index.html'},900);
+  }catch(err){console.error('Center-code login failed:',err);note(f,err&&err.message==='duplicate'?'هذا الكود مرتبط بأكثر من سجل. تواصل مع إدارة السنتر لتصحيح البيانات.':'تعذّر التحقق من الكود الآن. تأكد من اتصالك بالإنترنت وحاول مرة أخرى.')}
+  finally{button.disabled=false;button.classList.remove('ld');button.removeAttribute('aria-busy')}
+ });
+$('#f-reg').addEventListener('submit',async e=>{e.preventDefault();const f=e.target;if(!validate(f))return;
+ const x=await post(f,'/api/register',{fullName:val(f,'fullName').trim(),phone:val(f,'phone'),parentPhone:val(f,'parentPhone'),password:val(f,'password'),confirmPassword:val(f,'confirmPassword'),grade:val(f,'grade'),accountType:state.mode});if(!x)return;
+ x.r.ok?go(f,x.d):serverErrors(f,x.d)});
+$('#f-login').addEventListener('submit',async e=>{e.preventDefault();const f=e.target;if(!validate(f))return;
+ const x=await post(f,'/api/login',{phone:val(f,'phone'),password:val(f,'password')});if(!x)return;x.r.ok?go(f,x.d):note(f,x.d.error||'رقم الهاتف أو كلمة المرور غير صحيحة.')});
+// ---- Hash router: الشاشتان #/choose و #/login تعرضان نفس اختيار نوع الحساب؛ نماذج كل شاشة تبقى محفوظة (تُخفى ولا تُحذف) ----
+const views=['choose','center','register','signin'],D='choose';
+function route(){let v=location.hash.replace('#/','')||D;if(v==='login')v='choose';if(!views.includes(v))v=D;
+ if(v==='register'&&!state.mode){location.hash='#/choose';return}
+ views.forEach(n=>$('#v-'+n).hidden=n!==v);document.body.dataset.v=v;
+ if(v==='register'){const c=state.mode==='center';$('#rb').hidden=!c;$('#rt').textContent=c?'أكمل تسجيلك':'إنشاء حساب جديد';$('#reg-back').href=c?'#/center':'#/signin';$('#reg-login').dataset.who=c?'center':'external'}
+ if(v==='signin'){const c=state.who==='center',b=$('#sb');b.className='eb '+(c?'c1':'c2');b.textContent=c?'طالب داخل السنتر':'طالب خارج السنتر';$('#sg-reg').href=c?'#/center':'#/register'}
+ $('#v-'+v+' h1').focus({preventScroll:true});scrollTo(0,0)}
+document.addEventListener('click',e=>{const a=e.target.closest('[data-who]');if(a)state.who=a.dataset.who;if(e.target.closest('#sg-reg')&&state.who!=='center')state.mode='external'});
+addEventListener('hashchange',route);route();
+</script>
+<script src="mobile-header.js" defer></script>
+<footer class="dev-sig" dir="ltr" role="contentinfo" aria-label="Developer signature">
+<p class="ds-in"><span class="ds-code" aria-hidden="true">&lt;/&gt;</span><span>Developed &amp; Designed by</span><a class="ds-name" href="https://wa.me/201001352771" target="_blank" rel="noopener noreferrer" title="Chat on WhatsApp"><b aria-hidden="true">&lt;</b><span>Eng. Ahmed Amr Abo_ Alhaj</span><b aria-hidden="true">/&gt;</b><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm5.8 14.2c-.2.7-1.4 1.3-1.9 1.3-.5.1-1.1.1-1.8-.1-.4-.1-1-.3-1.7-.6-3-1.3-4.9-4.3-5-4.5-.1-.2-1.2-1.6-1.2-3s.8-2.1 1-2.4c.3-.3.6-.3.8-.3h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.4 0 .5l-.3.5-.4.5c-.1.2-.3.3-.1.6.2.3.7 1.2 1.5 1.9 1 .9 1.9 1.2 2.2 1.3.3.1.4.1.6-.1l.8-1c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.5.3.1.1.1.6-.1 1.3Z"/></svg></a></p>
+</footer>
+</body>
+</html>

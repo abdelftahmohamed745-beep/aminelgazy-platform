@@ -1,0 +1,59 @@
+/* هيدر الموبايل الموحّد (نفس هيدر index.html) — ≤720px فقط، لا يؤثر على الديسكتوب */
+.hm{display:none}
+@media(max-width:720px){
+.pg .hd{flex-wrap:wrap;gap:8px;row-gap:0;padding:10px 16px;min-height:0;align-items:center}
+.pg .hx .brand{order:1;flex:1 1 auto;min-width:0;margin:0;gap:8px;font-size:clamp(14px,4.5vw,19px)}
+.pg .brand__cap{width:clamp(20px,6vw,24px);height:clamp(20px,6vw,24px)}
+.pg .he{order:2;margin:0}
+.pg .tg{width:64px;height:36px}
+.pg .tg::before{top:4px;left:4px;width:28px;height:28px}
+.pg .tg .i{width:16px;height:16px}
+.pg .hm{order:3;display:inline-flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;width:42px;height:42px;padding:0;border:1.5px solid var(--bd);border-radius:12px;background:var(--card);cursor:pointer;-webkit-tap-highlight-color:transparent}
+.hm span{display:block;width:19px;height:2px;border-radius:2px;background:var(--ink);transition:transform .25s,opacity .2s}
+.hm:hover{border-color:var(--amb)}
+.pg .hm:focus-visible{outline:3px solid var(--den);outline-offset:3px}
+.hx.is-open .hm span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hx.is-open .hm span:nth-child(2){opacity:0}
+.hx.is-open .hm span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.pg .hx .nav{order:4;display:none;flex-direction:column;width:100%;margin:10px 0 0;padding:10px 0 2px;gap:2px;overflow:visible;border-top:1px solid var(--bd)}
+.pg .hx .nav a{padding-block:12px;font-size:16px;border-radius:10px;white-space:normal}
+.pg .hx .nav a:not([href="exam.html"]){padding-inline:14px}
+.pg .hs{order:5;display:none;width:100%;margin:0;gap:10px;padding:12px 0 8px}
+.pg .hs a{flex:1;min-height:46px;justify-content:center;padding:10px 12px;border-radius:12px;font-size:15px;white-space:nowrap}
+.pg .hx .hl{border:1.5px solid var(--bd);background:var(--card)}
+.pg .hb{order:0}
+.hx.is-open .nav,.hx.is-open .hs{display:flex}
+}
+@media(max-width:720px){html[data-theme=dark] .pg .tg::before{transform:translateX(28px)}}
+@media(max-width:340px){.pg .brand__cap{display:none}}
+@media(prefers-reduced-motion:reduce){.hm span{transition:none}}
+
+/* ===== تحسين هيدر الموبايل (≤720px فقط — إضافة فوق ما سبق دون تعديل أي قاعدة موجودة) =====
+   ١) ارتفاع أكبر بمقدار 38px (صف الهيدر 42px ← 80px)  ٢) خط الاسم وشعار القبعة أكبر قليلًا
+   ٣) زر الوضع الليلي وزر القائمة أكبر قليلًا  ٤) تثبيت الهيدر أعلى الشاشة
+   ٥) شريط تقدّم التمرير (يمتلئ من اليمين لليسار) يحلّ محل الخط الثابت القديم أسفل الهيدر بسُمك 4px ولون واحد متصل
+   الترتيب RTL كما هو: الشعار والاسم يمين، المفتاح في مكانه، القائمة أقصى اليسار.
+   لتعديل الارتفاع غيّر --hx-row فقط (إجمالي الهيدر = --hx-row + 20px حشو + 4px الشريط = 103px، أي الأصل 65px + 38px). */
+.hxp{display:none}
+@media(max-width:720px){
+html{--hx-row:79px;--hx-h:calc(var(--hx-row) + 24px);scroll-padding-top:calc(var(--hx-h) + 8px)}
+:is(.pg,body) .hx{--tgw:clamp(64px,calc(64px + (100vw - 341px) * .2),72px);--tgh:38px;--tgi:17px;--hmz:clamp(44px,calc(44px + (100vw - 341px) * .1),48px);--hml:20px;position:sticky;top:0;z-index:100}
+:is(.pg,body) .hx .brand{min-height:var(--hx-row);font-size:clamp(14.5px,calc(16.8px + (100vw - 360px) * .06),21px)}
+:is(.pg,body) .hx .brand__cap{width:clamp(21px,calc(21.5px + (100vw - 360px) * .05),26px);height:clamp(21px,calc(21.5px + (100vw - 360px) * .05),26px)}
+:is(.pg,body) .hx .tg{width:var(--tgw);height:var(--tgh)}
+:is(.pg,body) .hx .tg::before{top:4px;left:4px;width:calc(var(--tgh) - 8px);height:calc(var(--tgh) - 8px)}
+:is(.pg,body) .hx .tg .i{width:var(--tgi);height:var(--tgi)}
+html[data-theme=dark] :is(.pg,body) .hx .tg::before{transform:translateX(calc(var(--tgw) - var(--tgh)))}
+:is(.pg,body) .hx .hm{width:var(--hmz);height:var(--hmz)}
+:is(.pg,body) .hx .hm span{width:var(--hml)}
+/* القائمة المفتوحة أطول من الشاشة (وضع أفقي مثلًا): تُمرَّر داخل الهيدر المثبّت بدل أن تُقصّ */
+:is(.pg,body) .hx.is-open{max-height:100vh;max-height:100dvh;overflow-y:auto;overscroll-behavior:contain}
+/* الخط الثابت القديم أسفل الهيدر لم يكن يعمل: يبقى مكانه فارغًا (4px) ويحلّ محلّه شريط التقدّم */
+:is(.pg,body) .hx .ac{height:4px;background:none}
+/* شريط تقدّم التمرير: يُنشئه mobile-header.js ويجلس مكان الخط القديم تمامًا، يمتلئ من اليمين لليسار بلون واحد متصل هو لون الطرف الفاتح من الخط القديم (#20C4B0) */
+:is(.pg,body) .hx .hxp{display:block;position:absolute;left:0;right:0;bottom:0;height:4px;overflow:hidden;pointer-events:none}
+:is(.pg,body) .hx .hxp i{display:block;width:100%;height:100%;-webkit-clip-path:inset(0 0 0 100%);clip-path:inset(0 0 0 100%);background:#20C4B0}
+/* شريط الاختبار اللاصق في test.html يبدأ تحت الهيدر المثبّت */
+.rb{top:var(--hx-h)}
+}
+@media(max-width:720px) and (min-width:390px){:is(.pg,body) .hx{--tgh:40px;--tgi:18px;--hml:22px}}

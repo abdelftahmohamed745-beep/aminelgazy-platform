@@ -1,0 +1,79 @@
+{
+ "items": [
+  {
+   "id": "Q_1788465102986_7175",
+   "title": "بلاغه الامين",
+   "grade": "1",
+   "subject": "يبؤس",
+   "time": 2,
+   "questionsCount": 2,
+   "qn": 2,
+   "totalPoints": 2,
+   "averageGrade": 50,
+   "passingGrade": 50,
+   "isPublished": false,
+   "createdAt": "2026-09-03T19:53:32.977Z",
+   "updatedAt": "2026-09-04T12:35:56.202Z"
+  },
+  {
+   "id": "Q_1788468147679_J4BQ",
+   "title": "اختبار علي (مدرسة الاحياء والبعث- التشبيه- علامات الإعراب)",
+   "grade": "3",
+   "subject": "عام",
+   "time": 30,
+   "questionsCount": 12,
+   "qn": 12,
+   "totalPoints": 12,
+   "averageGrade": 50,
+   "passingGrade": 50,
+   "isPublished": true,
+   "createdAt": "2026-09-03T21:05:36.149Z",
+   "updatedAt": "2026-10-21T11:04:51.623Z"
+  },
+  {
+   "id": "Q_1789086427471_GT3Y",
+   "title": "اختبار علي \"التشبيه- الاستعارة- كان واخواتها- نصف درس الادب في العصر الجاهلي\"",
+   "grade": "1",
+   "subject": "عام",
+   "time": 30,
+   "questionsCount": 12,
+   "qn": 12,
+   "totalPoints": 12,
+   "averageGrade": 50,
+   "passingGrade": 50,
+   "isPublished": true,
+   "createdAt": "2026-09-11T01:06:45.376Z",
+   "updatedAt": "2026-10-15T22:34:28.011Z"
+  },
+  {
+   "id": "Q_1790200316703_E4IY",
+   "title": "تتهنا",
+   "grade": "prep1",
+   "subject": "عام",
+   "time": 10,
+   "questionsCount": 5,
+   "qn": 5,
+   "totalPoints": 5,
+   "averageGrade": 50,
+   "passingGrade": 50,
+   "isPublished": false,
+   "createdAt": "",
+   "updatedAt": ""
+  },
+  {
+   "id": "Q_1792103672565_D2EN",
+   "title": "اختبار نحو علي\"الفعل الماضي- الفعل الامر- الفعل المضارع المنصوب، المجزوم، المرفوع\"",
+   "grade": "3",
+   "subject": "نحو",
+   "time": 30,
+   "questionsCount": 15,
+   "qn": 15,
+   "totalPoints": 15,
+   "averageGrade": 50,
+   "passingGrade": 50,
+   "isPublished": true,
+   "createdAt": "2026-10-15T23:45:43.507Z",
+   "updatedAt": "2026-10-16T16:14:53.905Z"
+  }
+ ]
+}

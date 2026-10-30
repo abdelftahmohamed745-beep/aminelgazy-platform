@@ -1,0 +1,98 @@
+{
+ "users": [
+  {
+   "id": 1,
+   "fullName": "طالب تجريبي",
+   "phone": "01000000000",
+   "parentPhone": "01100000001",
+   "grade": "Third Secondary",
+   "accountType": "external",
+   "salt": "3c01bccba270ca250ef8d74be5bd8607",
+   "passwordHash": "a3b889bfac85397dc048f5664a0b3a7d61aeed020b264b2d870b03e14840d6ca",
+   "enrolledCourses": [
+    "1788215964547"
+   ],
+   "createdAt": "2026-10-29T00:02:54.810Z"
+  }
+ ],
+ "sessions": {},
+ "attempts": [
+  {
+   "studentId": "web-1",
+   "studentName": "طالب تجريبي",
+   "studentCode": "01000000000",
+   "quizId": "Q_1788468147679_J4BQ",
+   "quizTitle": "اختبار علي (مدرسة الاحياء والبعث- التشبيه- علامات الإعراب)",
+   "grade": "3",
+   "status": "submitted",
+   "score": 12,
+   "totalPoints": 12,
+   "percentage": 100,
+   "passed": true,
+   "startedAt": "",
+   "submittedAt": "٢٩‏/١٠‏/٢٠٢٦ ٣:٠٥:٠٠ ص",
+   "submittedAtIso": "2026-10-28T23:05:00.000Z",
+   "elapsedTime": 540,
+   "answers": [
+    0,
+    1,
+    0,
+    1,
+    2,
+    2,
+    2,
+    2,
+    1,
+    1,
+    1,
+    2
+   ],
+   "courseId": null,
+   "lessonId": null,
+   "lessonTitle": null,
+   "accountType": "external",
+   "source": "platform"
+  },
+  {
+   "studentId": "web-1",
+   "studentName": "طالب تجريبي",
+   "studentCode": "01000000000",
+   "quizId": "Q_1792103672565_D2EN",
+   "quizTitle": "اختبار نحو علي\"الفعل الماضي- الفعل الامر- الفعل المضارع المنصوب، المجزوم، المرفوع\"",
+   "grade": "3",
+   "status": "submitted",
+   "score": 1,
+   "totalPoints": 15,
+   "percentage": 7,
+   "passed": false,
+   "startedAt": "٣٠‏/١٠‏/٢٠٢٦ ٩:٥٥:٠٥ ص",
+   "submittedAt": "٣٠‏/١٠‏/٢٠٢٦ ٩:٥٥:٤٥ ص",
+   "submittedAtIso": "2026-10-30T09:55:45.068Z",
+   "elapsedTime": 39,
+   "answers": [
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0
+   ],
+   "courseId": "1791465965486",
+   "lessonId": "1791466174533",
+   "lessonTitle": "اخر درسين في الوحده ٥",
+   "accountType": "external",
+   "source": "platform"
+  }
+ ],
+ "messages": [],
+ "nextUserId": 2
+}

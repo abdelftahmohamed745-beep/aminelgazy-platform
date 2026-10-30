@@ -1,0 +1,11 @@
+node_modules/
+.vercel/
+.env
+.env.local
+.env.*.local
+!.env.example
+data/state.json
+data/state.json.*.tmp
+_evidence/
+*.log
+.DS_Store

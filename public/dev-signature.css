@@ -1,0 +1,27 @@
+/* Developer signature (lime bar)  — Eng. Ahmed Amr Abo_ Alhaj */
+.dev-sig{--g1:#0B1C33;--g2:#0B1C33;box-sizing:border-box;width:100%;margin-top:auto;padding:6px 14px calc(6px + env(safe-area-inset-bottom,0px));background:#C6D94B;color:#0B1C33;direction:ltr;text-align:center;font:600 12.5px/1.4 'Cairo','Segoe UI',system-ui,sans-serif;position:relative;z-index:1;clear:both}
+.dev-sig *{box-sizing:border-box}
+.dev-sig::before{content:"";position:absolute;inset:0 0 auto;height:1px;background:linear-gradient(90deg,transparent,var(--g1),var(--g2),transparent);opacity:.6}
+.ds-in{margin:0;display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:2px 8px}
+.ds-code{font:700 12.5px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--g1);padding:2px 7px;border:1px solid rgba(11,28,51,.45);border-radius:6px;background:rgba(11,28,51,.1);animation:ds-pulse 4s ease-in-out infinite}
+.ds-name{position:relative;display:inline-flex;align-items:center;gap:6px;padding:12px 8px;border-radius:8px;text-decoration:none;color:var(--g1);font-weight:800;font-size:14px;letter-spacing:.2px;-webkit-tap-highlight-color:transparent}
+.ds-name b{font:700 14px ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--g1);transition:transform .3s ease}
+.ds-name span{color:var(--g1)}
+.ds-name svg{width:15px;height:15px;flex:none;fill:#0B1C33;opacity:1;transition:transform .3s ease}
+.ds-name::after{content:"";position:absolute;left:8px;right:8px;bottom:8px;height:2px;border-radius:2px;background:linear-gradient(90deg,var(--g1),var(--g2));transform:scaleX(0);transform-origin:left;transition:transform .35s ease}
+.ds-name:hover::after,.ds-name:focus-visible::after{transform:scaleX(1)}
+.ds-name:hover b:first-child,.ds-name:focus-visible b:first-child{transform:translateX(-3px)}
+.ds-name:hover b:last-of-type,.ds-name:focus-visible b:last-of-type{transform:translateX(3px)}
+.ds-name:hover svg,.ds-name:focus-visible svg{transform:scale(1.2) rotate(-8deg)}
+.ds-name:focus-visible{outline:2px solid var(--g1);outline-offset:1px}
+@keyframes ds-pulse{0%,100%{box-shadow:0 0 0 0 rgba(11,28,51,0)}50%{box-shadow:0 0 10px 0 rgba(11,28,51,.25)}}
+@media(max-width:480px){.dev-sig{font-size:12px}.ds-name{flex-basis:100%;justify-content:center;padding:10px 8px}.ds-name::after{left:20%;right:20%;bottom:6px}}
+@media(prefers-reduced-motion:reduce){.dev-sig *{transition:none!important;animation:none!important}}
+@media print{.dev-sig{display:none!important}}
+/* dashboard: body is a flex row with a fixed right sidebar */
+body:has(>.sidebar~.dev-sig){flex-wrap:wrap}
+body>.sidebar~.dev-sig{flex:1 1 100%;margin-right:260px}
+@media(max-width:768px){body>.sidebar~.dev-sig{margin-right:0}}
+/* إصلاح الشاشة البيضاء على الموبايل: .main له flex-basis:0 فكان الفوتر (100%) يتّسع معه في نفس السطر عندما يصير margin-right:0،
+   فيُضغط .main إلى عرض صفر ويخرج من الشاشة. أساس 1px يجعل مجموع السطر أكبر من 100% فينزل الفوتر دائمًا إلى سطر مستقل. */
+body:has(>.sidebar~.dev-sig)>.main{flex:1 1 1px;min-width:1px}

@@ -1,0 +1,245 @@
+/* ============================================================================
+   شاشة التحميل (Splash) — منصة «الأمين في اللغة العربية» / مستر أمين الغازي
+   ----------------------------------------------------------------------------
+   الفكرة: «قلم الأمين». كتاب مفتوح تنبعث منه الحروف العربية، وقلم خطّ عربي يكتب اسم المنصة بالحبر الليموني من اليمين إلى
+   اليسار، ثم يُشكَّل الاسم بالفتحة والكسرة والضمّة («الأَمِينُ»)، وفي الثانية الرابعة تنقلب الشاشة كصفحة كتاب
+   (كتب العربية يكون كعبها على اليمين) فتكشف المنصة.
+
+   الألوان والخطوط مأخوذة كما هي من المنصة: كحلي #0B1C33 · تيل #0B7A71/#14A39A · ليموني #C6D94B · Cairo + El Messiri.
+
+   الجدول الزمني (بالثواني من أول لقطة):
+     0.00  خلفية كحلية فورًا + شبكة الخاتم + حروف شبحية                  2.20  الفتحة تسقط على الهمزة ← 2.45 الكسرة ← 2.70 الضمّة
+     0.15  الكتاب ينفتح وتُكتب سطوره                                    2.30  اسم المدرّس
+     0.55  القلم يكتب «الأمين» (1.2ث) والحروف تتصاعد من الكتاب            2.85  الشعار: «اللغة العربية أسهل مما تتخيّل»
+     1.50  شدّة المدّ (الكشيدة) تحت الاسم                                3.30  لمعة اكتمال على الاسم
+     1.85  القلم يكتب «في اللغة العربية»                                 4.00  الصفحة تنقلب (≈0.9ث) ← المنصة
+   شريط التقدّم ورقم النسبة يسيران على نفس المنحنى طوال 4 ثوانٍ.
+
+   كل الحركة transform/opacity عدا رسم الخطوط (stroke-dashoffset) وكشف النص (clip-path). لا مكتبات.
+   كل القواعد مقيّدة بـ .spl و html.spl-lock فلا تؤثر في أي شيء آخر في الصفحة.
+   ========================================================================== */
+
+/* ---- قفل الصفحة أثناء الشاشة: لا وميض ولا تمرير، وحركة مدخل الصفحة تنتظر لحظة الفتح ---- */
+html.spl-lock{overflow:hidden!important;background:#0B1C33}
+html.spl-lock body{overflow:hidden}
+/* الصفحة لا تُرسم قبل أن تُرسم الشاشة نفسها (أول لقطة تظهر فورًا)، ثم تُرسم خلفها بهدوء */
+html.spl-lock:not(.spl-vis) body{visibility:hidden}
+html.spl-lock:not(.spl-go) .pg,
+html.spl-lock:not(.spl-go) .pg *,
+html.spl-lock:not(.spl-go) .pg *::before,
+html.spl-lock:not(.spl-go) .pg *::after{animation-play-state:paused!important}
+
+/* ---- الغلاف ----
+   تبدأ كل الحركات (class is-run) فور رسم أول إطار فعلًا، فيرى الزائر الثواني الأربع كاملة ولو تأخّر الرسم الأول. */
+.spl{
+  --lime:#C6D94B;--lime-l:#E4F08F;--lime-d:#A3B82C;--teal:#0B7A71;--teal-l:#14A39A;--mint:#3DD6C3;--navy:#0B1C33;
+  --e1:cubic-bezier(.2,.7,.2,1);--e2:cubic-bezier(.6,0,.2,1);--e3:cubic-bezier(.45,.05,.2,1);
+  --nf:min(19.5vw,16vh,164px);--bk:min(44vw,22vh,250px);--tw:min(80vw,440px);
+  position:fixed;inset:0;z-index:2147483647;overflow:hidden;direction:rtl;text-align:start;
+  color:#fff;font-family:'Cairo',Tahoma,sans-serif;font-synthesis:none;
+  -webkit-font-smoothing:antialiased;-webkit-tap-highlight-color:transparent;
+  -webkit-user-select:none;user-select:none;cursor:progress;
+}
+@supports (height:1svh){.spl{--nf:min(19.5vw,16svh,164px);--bk:min(44vw,22svh,250px)}}
+.spl *,.spl *::before,.spl *::after{box-sizing:border-box}
+.spl:not(.is-run) *,.spl:not(.is-run) *::before,.spl:not(.is-run) *::after{animation-play-state:paused!important}
+.spl__sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---- الخلفية ---- */
+.spl__veil{position:absolute;inset:0;overflow:hidden;
+  background:
+    radial-gradient(60% 55% at 80% 6%,rgba(198,217,75,.22),transparent 62%),
+    radial-gradient(72% 62% at 10% 100%,rgba(20,163,154,.34),transparent 66%),
+    linear-gradient(158deg,#0B1C33 0 36%,#0A2D3C 64%,#0B4F52 100%)}
+.spl__lat{position:absolute;inset:-56px;opacity:0;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='56' viewBox='0 0 56 56'%3E%3Cpath d='M28,0L36.2,8.2L47.8,8.2L47.8,19.8L56,28L47.8,36.2L47.8,47.8L36.2,47.8L28,56L19.8,47.8L8.2,47.8L8.2,36.2L0,28L8.2,19.8L8.2,8.2L19.8,8.2ZM28,15.1L31.1,20.6L37.1,18.9L35.4,24.9L40.9,28L35.4,31.1L37.1,37.1L31.1,35.4L28,40.9L24.9,35.4L18.9,37.1L20.6,31.1L15.1,28L20.6,24.9L18.9,18.9L24.9,20.6Z' fill='none' stroke='%233DD6C3' stroke-opacity='.22' stroke-width='1'/%3E%3C/svg%3E") 0 0/56px 56px;
+  -webkit-mask-image:radial-gradient(62% 52% at 50% 44%,#000,transparent);mask-image:radial-gradient(62% 52% at 50% 44%,#000,transparent);
+  animation:spl-fade 1.4s .15s ease-out both}
+.spl__ltr{position:absolute;left:var(--x);top:var(--y);opacity:0;pointer-events:none;
+  font:900 clamp(64px,15vmin,170px)/1 'Cairo',Tahoma,sans-serif;color:rgba(61,214,195,.075);
+  animation:spl-ltr 4.2s var(--d) ease-out both}
+.spl__mote{position:absolute;left:var(--x);bottom:-12px;width:var(--s);height:var(--s);border-radius:50%;opacity:0;pointer-events:none;
+  background:var(--lime-l);box-shadow:0 0 9px 1px rgba(198,217,75,.65);animation:spl-mote var(--t) var(--d) ease-out both}
+.spl__vig{position:absolute;inset:0;background:radial-gradient(120% 100% at 50% 44%,transparent 55%,rgba(4,10,18,.55))}
+
+/* ---- الواجهة ---- */
+.spl__ui{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:clamp(12px,2.6vh,26px);padding:16px 16px calc(16px + env(safe-area-inset-bottom,0px))}
+.spl__txt{display:flex;flex-direction:column;align-items:center;gap:clamp(10px,2.2vh,20px);min-width:0}
+
+/* ---- المشهد: كتاب مفتوح تتصاعد منه الحروف ---- */
+.spl__stage{position:relative;flex:none;width:var(--bk);height:calc(var(--bk)*.64);margin-top:calc(var(--bk)*.34)}
+.spl__rays{position:absolute;left:50%;top:40%;width:min(calc(var(--bk)*5.4),150vmin);aspect-ratio:1;opacity:0;pointer-events:none;
+  transform:translate(-50%,-50%);
+  background:repeating-conic-gradient(from 0deg,rgba(198,217,75,.07) 0 5deg,transparent 5deg 15deg);
+  -webkit-mask-image:radial-gradient(closest-side,#000 6%,transparent 80%);mask-image:radial-gradient(closest-side,#000 6%,transparent 80%);
+  animation:spl-fade 1.4s .3s ease-out both}
+.spl__halo{position:absolute;left:-55%;right:-55%;top:-80%;bottom:-60%;opacity:0;pointer-events:none;
+  background:radial-gradient(closest-side,rgba(198,217,75,.38),rgba(198,217,75,.11) 55%,transparent 76%);
+  animation:spl-fade 1.2s .2s ease-out both,spl-breath 2.4s 1.5s ease-in-out infinite alternate}
+.spl__book{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.spl__bkf{animation:spl-float 3s .9s ease-in-out infinite alternate}
+.spl__cov{fill:var(--teal-l);stroke:rgba(228,240,143,.55);stroke-width:2;stroke-linejoin:round;opacity:0;animation:spl-fade .5s .1s ease-out both}
+.spl__pg{transform-box:fill-box;animation:spl-open .85s .15s cubic-bezier(.2,.8,.25,1) both}
+.spl__pg--r{transform-origin:0 50%}.spl__pg--l{transform-origin:100% 50%}
+.spl__pgf{stroke:rgba(255,255,255,.7);stroke-width:2;stroke-linejoin:round}
+.spl__ink{fill:none;stroke:var(--navy);stroke-opacity:.8;stroke-width:3.6;stroke-linecap:round;stroke-dasharray:1 2;stroke-dashoffset:1;
+  animation:spl-draw .55s calc(.55s + var(--k)*.16s) var(--e2) both}
+.spl__spine{fill:none;stroke:rgba(11,28,51,.4);stroke-width:2.6;stroke-linecap:round;stroke-dasharray:1 2;stroke-dashoffset:1;animation:spl-draw .6s .3s var(--e1) both}
+.spl__up{position:absolute;left:50%;top:34%;width:0;height:0;pointer-events:none}
+.spl__up b{position:absolute;left:0;top:0;opacity:0;white-space:nowrap;
+  font:900 calc(var(--bk)*var(--z)) /1 'Cairo',Tahoma,sans-serif;color:var(--c);text-shadow:0 0 14px var(--g);
+  animation:spl-up var(--t) var(--d) cubic-bezier(.2,.7,.3,1) both}
+.spl:not(.spl-t) .spl__up b{visibility:hidden}
+.spl__sp{position:absolute;width:var(--w);aspect-ratio:1;left:var(--x);top:var(--y);margin:calc(var(--w)/-2) 0 0 calc(var(--w)/-2);
+  fill:var(--lime);opacity:0;animation:spl-pop .6s var(--d) var(--e1) both,spl-tw 2.2s calc(var(--d) + .6s) ease-in-out infinite alternate}
+.spl__sp--w{fill:#fff}
+.spl__shn{opacity:0;animation:spl-shn .95s 3.3s ease-in-out both}
+
+/* ---- اسم المنصة: يُكتب بقلم قصب بحبر ليموني ثم يُشكَّل ---- */
+.spl__brand{display:flex;flex-direction:column;align-items:center;gap:calc(var(--nf)*.1);direction:rtl}
+.spl__nm{position:relative;display:block}
+.spl__name{display:block;white-space:nowrap;padding:0 .04em;
+  font:700 var(--nf)/1.3 'El Messiri','Cairo',Tahoma,sans-serif;
+  background:linear-gradient(105deg,transparent 42%,rgba(255,255,255,.95) 50%,transparent 58%) 0 0/300% 100% no-repeat,
+             linear-gradient(180deg,var(--lime-l) 8%,var(--lime) 58%,var(--lime-d)) 0 0/100% 100% no-repeat;
+  -webkit-background-clip:text;background-clip:text;color:transparent;-webkit-text-fill-color:transparent;
+  clip-path:inset(-40% 0 -40% 100%);animation:spl-wipe 1.2s .55s var(--e2) both,spl-shm .95s 3.3s ease-in-out both}
+.spl__name2{display:block;white-space:nowrap;font:500 calc(var(--nf)*.33)/1.5 'El Messiri','Cairo',Tahoma,sans-serif;color:#fff;
+  clip-path:inset(-40% 0 -40% 100%);animation:spl-wipe .75s 1.85s var(--e2) both}
+.spl__kash{position:absolute;left:3%;right:3%;bottom:calc(var(--nf)*-.045);width:94%;height:calc(var(--nf)*.1);overflow:visible;fill:var(--lime);opacity:.9;
+  clip-path:inset(0 0 0 100%);animation:spl-kash .7s 1.5s var(--e2) both}
+/* القلم: يتبع حافّة الكشف (نفس المنحنى والمدة) */
+.spl__pw{position:absolute;inset:0;pointer-events:none;animation:spl-pwx 1.2s .55s var(--e2) both}
+.spl__pw--b{animation:spl-pwx .75s 1.85s var(--e2) both}
+.spl__pen{position:absolute;left:0;top:74%;width:calc(var(--nf)*.15);height:calc(var(--nf)*.92);margin:calc(var(--nf)*-.855) 0 0 calc(var(--nf)*-.075);
+  transform-origin:50% 93%;transform:rotate(26deg);opacity:0;overflow:visible;animation:spl-penv 1.2s .55s linear both,spl-bob .22s ease-in-out infinite alternate}
+.spl__pw--b .spl__pen{top:70%;height:calc(var(--nf)*.6);width:calc(var(--nf)*.1);margin:calc(var(--nf)*-.56) 0 0 calc(var(--nf)*-.05);animation:spl-penv .75s 1.85s linear both,spl-bob .22s ease-in-out infinite alternate}
+/* حركات التشكيل: تُوضع بإحداثيات يحسبها splash.js بعد تحميل الخط (وحدة em من حجم الاسم) */
+.spl__marks{position:absolute;inset:0;font-size:var(--nf);pointer-events:none;visibility:hidden}
+.spl.is-m .spl__marks{visibility:visible}
+.spl__mk{position:absolute;left:var(--x);top:var(--y);width:.25em;height:.167em;margin:-.0835em 0 0 -.125em;overflow:visible;opacity:0;
+  fill:none;stroke:#F6FBD2;stroke-width:3.4;stroke-linecap:round;stroke-linejoin:round;filter:drop-shadow(0 0 5px rgba(198,217,75,.95));
+  animation:spl-mark .7s var(--d) cubic-bezier(.3,1.3,.5,1) both}
+.spl__mk--d{width:.21em;height:.21em;margin:-.105em 0 0 -.105em}
+.spl__bst{position:absolute;left:var(--x);top:var(--y);width:.27em;aspect-ratio:1;margin:-.17em 0 0 -.17em;opacity:0;fill:var(--lime-l);
+  animation:spl-bst .6s calc(var(--d) + .3s) ease-out both}
+
+/* اسم المدرّس: حبّة زجاجية بأيقونة ليمونية (نفس حبّة «منصة متخصصة…» في الصفحة الرئيسية) */
+.spl__who{display:inline-flex;align-items:center;gap:10px;padding:5px 6px 5px 18px;border-radius:999px;
+  background:rgba(255,255,255,.07);border:1px solid rgba(61,214,195,.32);
+  font:700 clamp(14px,3.6vw,16px)/1.7 'Cairo',Tahoma,sans-serif;color:#E6F7F3;animation:spl-rise .6s 2.3s var(--e1) both}
+.spl__whoi{display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--lime);color:var(--navy)}
+.spl__whoi svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+
+/* شريط التقدّم: خط بمعيّنات (زخرفة فاصل المنصة) يمتلئ من اليمين إلى اليسار */
+.spl__prog{width:var(--tw);animation:spl-rise .7s .55s var(--e1) both}
+.spl__track{position:relative;height:4px;border-radius:4px;background:rgba(255,255,255,.13);direction:ltr}
+.spl__fill{position:absolute;inset:0;border-radius:inherit;overflow:hidden;transform-origin:100% 50%;transform:scaleX(0);
+  background:linear-gradient(270deg,var(--teal-l),var(--lime));animation:spl-fill 4s var(--e3) both}
+.spl__fill::after{content:"";position:absolute;inset:0;opacity:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.7),transparent);transform:translateX(-100%)}
+.spl__head{position:absolute;inset:0;pointer-events:none;animation:spl-head 4s var(--e3) both}
+.spl__head::after{content:"";position:absolute;left:0;top:50%;width:22px;height:22px;margin:-11px 0 0 -11px;
+  background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='-30 -30 60 60'%3E%3Cpath d='M0,-30C3,-9 9,-3 30,0C9,3 3,9 0,30C-3,9 -9,3 -30,0C-9,-3 -3,-9 0,-30Z' fill='%23E4F08F'/%3E%3C/svg%3E") center/contain no-repeat;
+  filter:drop-shadow(0 0 5px rgba(198,217,75,.95))}
+.spl__d{position:absolute;top:50%;width:9px;height:9px;transform:translate(-50%,-50%) rotate(45deg);background:var(--teal-l)}
+.spl__d--r{left:100%}.spl__d--c{left:50%;background:var(--lime)}.spl__d--l{left:0}
+.spl__info{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:10px;height:2em}
+.spl__msgs{position:relative;flex:1;height:100%;min-width:0}
+.spl__m{position:absolute;inset:0;display:flex;align-items:center;white-space:nowrap;opacity:0;
+  font:700 clamp(13.5px,3.5vw,17px)/1.9 'Cairo',Tahoma,sans-serif;color:#CBE6E1}
+.spl__m1{animation:spl-m 1.3s .45s both}
+.spl__m2{animation:spl-m 1.3s 1.65s both}
+.spl__m3{color:#fff;animation:spl-min .6s 2.85s var(--e1) both}
+.spl__m4{color:var(--lime-l)}
+.spl__hk{position:relative;display:inline-block;color:#D8E766}
+.spl__hk::after{content:"";position:absolute;inset-inline:-.06em;bottom:.12em;height:2px;border-radius:2px;background:linear-gradient(270deg,var(--lime),var(--mint));
+  transform-origin:100% 50%;animation:spl-ul .7s 3.2s var(--e2) both}
+.spl__pct{flex:none;min-width:3.4em;text-align:end;font:800 clamp(14px,3.6vw,17px)/1.9 'Cairo',Tahoma,sans-serif;color:var(--lime);font-variant-numeric:tabular-nums}
+
+/* نصوص تنتظر الخط كي لا يظهر خط بديل لحظة ثم يتبدّل */
+.spl:not(.spl-t) .spl__name,.spl:not(.spl-t) .spl__name2,.spl:not(.spl-t) .spl__who,.spl:not(.spl-t) .spl__m,.spl:not(.spl-t) .spl__pct{visibility:hidden}
+
+/* ---- بطء التحميل: «لحظات ونكون جاهزين…» ثم لوحة إعادة المحاولة ---- */
+.spl.is-wait .spl__m3{animation:spl-mout .35s both}
+.spl.is-wait .spl__m4{animation:spl-min .5s .25s var(--e1) both}
+.spl.is-wait .spl__fill::after{opacity:1;animation:spl-shim 1.3s linear infinite}
+.spl.is-wait .spl__head::after{animation:spl-tw .9s ease-in-out infinite alternate}
+.spl__alert[hidden]{display:none}
+.spl__alert{display:flex;flex-direction:column;align-items:center;gap:6px;margin-top:14px;text-align:center}
+.spl__at{font:800 clamp(15px,4vw,18px)/1.6 'Cairo',Tahoma,sans-serif;color:#fff}
+.spl__ap{font:500 clamp(13px,3.4vw,15px)/1.8 'Cairo',Tahoma,sans-serif;color:#CBE6E1;max-width:30em}
+.spl__ab{display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:8px}
+.spl__btn{appearance:none;cursor:pointer;min-height:44px;padding:9px 20px;border-radius:8px;font:700 15px/1.4 'Cairo',Tahoma,sans-serif;
+  color:#fff;background:transparent;border:1.5px solid rgba(255,255,255,.4);transition:background .2s,border-color .2s}
+.spl__btn:hover{background:rgba(255,255,255,.1)}
+.spl__btn--p{background:var(--lime);border-color:#A9BC2A;color:var(--navy)}
+.spl__btn--p:hover{background:#D6E766}
+.spl__btn:focus-visible{outline:3px solid var(--mint);outline-offset:3px}
+.spl.is-alert .spl__info{display:none}
+.spl.is-alert{cursor:auto}
+
+/* ---- الخروج: تنقلب الشاشة كصفحة كتاب (الكعب على اليمين كما في كتب العربية) فتكشف المنصة ---- */
+.spl.is-exit .spl__alert{animation:spl-out .3s ease-in both}
+.spl__shade{position:absolute;inset:0;pointer-events:none;opacity:0;background:linear-gradient(270deg,rgba(2,8,16,.2),rgba(2,8,16,.78))}
+.spl.is-turn{transform-origin:100% 50%;-webkit-backface-visibility:hidden;backface-visibility:hidden;will-change:transform;
+  box-shadow:-30px 0 80px 10px rgba(2,8,16,.5);animation:spl-turn .9s cubic-bezier(.55,0,.25,1) both}
+.spl.is-turn .spl__shade{animation:spl-shade .9s cubic-bezier(.55,0,.25,1) both}
+.spl.is-fade{transition:opacity .6s ease;opacity:0}
+
+/* ---- شاشة أفقية قصيرة (هاتف مقلوب): الكتاب يمينًا والنص يسارًا ---- */
+@media (orientation:landscape) and (max-height:520px){
+  .spl{--nf:min(11.5vw,17vh,92px);--bk:min(24vw,40vh,190px);--tw:min(44vw,380px)}
+  @supports (height:1svh){.spl{--nf:min(11.5vw,17svh,92px);--bk:min(24vw,40svh,190px)}}
+  .spl__ui{flex-direction:row;gap:clamp(16px,5vw,56px)}
+  .spl__stage{margin-top:0}
+}
+@media (max-height:560px) and (orientation:portrait){.spl{--nf:min(19vw,12vh,110px);--bk:min(38vw,17vh,170px)}}
+
+/* ---- الحركات ---- */
+@keyframes spl-fade{from{opacity:0}to{opacity:1}}
+@keyframes spl-rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@keyframes spl-draw{from{stroke-dashoffset:1}to{stroke-dashoffset:0}}
+@keyframes spl-mote{0%{opacity:0;transform:translateY(0)}18%{opacity:.9}100%{opacity:0;transform:translateY(-46vh)}}
+@keyframes spl-ltr{0%{opacity:0;transform:translateY(40px) rotate(var(--r))}35%{opacity:1}100%{opacity:1;transform:translateY(-26px) rotate(calc(var(--r) + 6deg))}}
+@keyframes spl-breath{from{opacity:1;transform:scale(.97)}to{opacity:.72;transform:scale(1.05)}}
+@keyframes spl-float{from{transform:translateY(0)}to{transform:translateY(-5px)}}
+@keyframes spl-open{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes spl-up{0%{opacity:0;transform:translate(-50%,-50%) scale(.3) rotate(0)}
+  16%{opacity:1}70%{opacity:.95}
+  100%{opacity:0;transform:translate(calc(-50% + var(--bk)*var(--tx)),calc(-50% + var(--bk)*var(--ty))) scale(1) rotate(var(--r))}}
+@keyframes spl-pop{from{opacity:0;transform:scale(0) rotate(-40deg)}to{opacity:1;transform:none}}
+@keyframes spl-tw{from{opacity:1;transform:scale(1)}to{opacity:.35;transform:scale(.7)}}
+@keyframes spl-shn{0%{opacity:0;transform:translateX(-90px)}15%{opacity:1}85%{opacity:1}100%{opacity:0;transform:translateX(330px)}}
+@keyframes spl-wipe{from{clip-path:inset(-40% 0 -40% 100%)}to{clip-path:inset(-40% 0 -40% 0)}}
+@keyframes spl-shm{from{background-position:0 0,0 0}to{background-position:100% 0,0 0}}
+@keyframes spl-pwx{from{transform:translateX(100%)}to{transform:translateX(0)}}
+@keyframes spl-penv{0%{opacity:0}7%{opacity:1}90%{opacity:1}100%{opacity:0}}
+@keyframes spl-bob{from{transform:translateY(0) rotate(24deg)}to{transform:translateY(calc(var(--nf)*-.035)) rotate(29deg)}}
+@keyframes spl-kash{from{clip-path:inset(0 0 0 100%)}to{clip-path:inset(0 0 0 0)}}
+@keyframes spl-mark{0%{opacity:0;transform:translateY(calc(var(--nf)*-.22)) scale(1.7)}45%{opacity:1}62%{transform:translateY(2px) scale(.88)}82%{transform:translateY(-1px) scale(1.06)}100%{opacity:1;transform:none}}
+@keyframes spl-bst{0%{opacity:.95;transform:scale(.2) rotate(-30deg)}100%{opacity:0;transform:scale(2.2) rotate(40deg)}}
+@keyframes spl-fill{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes spl-head{from{transform:translateX(100%)}to{transform:translateX(0)}}
+@keyframes spl-shim{to{transform:translateX(100%)}}
+@keyframes spl-m{0%{opacity:0;transform:translateY(8px)}16%{opacity:1;transform:none}84%{opacity:1;transform:none}100%{opacity:0;transform:translateY(-8px)}}
+@keyframes spl-min{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+@keyframes spl-mout{from{opacity:1}to{opacity:0;transform:translateY(-8px)}}
+@keyframes spl-ul{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes spl-out{from{opacity:1;transform:none}to{opacity:0;transform:translateY(-12px)}}
+@keyframes spl-turn{from{transform:perspective(1800px) rotateY(0deg)}to{transform:perspective(1800px) rotateY(-90deg)}}
+@keyframes spl-shade{from{opacity:0}to{opacity:1}}
+
+/* ---- تقليل الحركة: نفس المشهد بدون رسم أو دوران أو حركة مستمرة؛ تظهر العناصر بتلاشٍ هادئ ---- */
+@media (prefers-reduced-motion:reduce){
+  .spl__lat,.spl__rays,.spl__ltr,.spl__mote,.spl__halo,.spl__sp,.spl__bkf{animation:none!important}
+  .spl__lat,.spl__rays,.spl__halo,.spl__ltr,.spl__sp{opacity:1}
+  .spl__up,.spl__pw,.spl__shn,.spl__bst,.spl__mote{display:none!important}
+  .spl__pg{animation:spl-fade .8s .2s ease-out both}
+  .spl__ink,.spl__spine{stroke-dashoffset:0;animation:spl-fade .6s .5s ease-out both}
+  .spl__name,.spl__name2{clip-path:none;animation:spl-fade .7s .8s ease-out both;background-image:linear-gradient(180deg,var(--lime-l) 8%,var(--lime) 58%,var(--lime-d))}
+  .spl__kash{clip-path:none;animation:spl-fade .6s 1.5s ease-out both}
+  .spl__mk{animation:spl-fade .5s 2.2s ease-out both}
+  .spl__hk::after{transform:none;animation:spl-fade .6s 3.2s ease-out both}
+  .spl__head::after{display:none}
+}
