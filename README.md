@@ -7,6 +7,8 @@
 - **الموقع المباشر:** <https://aminelgazy-platform.vercel.app>
 - **المستودع:** <https://github.com/abdelftahmohamed745-beep/aminelgazy-platform>
 
+![لقطة من الصفحة الرئيسية](docs/screenshot-home.webp)
+
 إعادة بناء كاملة قابلة للتشغيل لموقع <https://www.aminelgazy.com/> بالعربية واتجاه RTL،
 بدون أي اعتماديات خارجية في الواجهة، وبدون خدمات Firebase حقيقية. الصفحات منسوخة من
 الموقع المرجعي ومعدّلة لتتصل بخادم محلي يوفّر الحسابات والجلسات والاشتراكات والنتائج.
